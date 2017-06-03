@@ -1,13 +1,102 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.deepak.socialnetworkingapp.FragmentPicturePost">
 
-    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linear_layout"
+        android:padding="5dp"
+        >
+
+        <ImageButton
+            android:id="@+id/ib_profile_picture"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            tools:src="@drawable/ic_face"
+            />
+        <TextView
+            android:paddingStart="10dp"
+            android:id="@+id/tv_profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Deepak Yadav"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            android:textSize="18sp"
+            android:textColor="fff"
+            android:paddingLeft="10dp" />
+    </LinearLayout>
+
     <TextView
+        android:id="@+id/post_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_layout"
+        android:padding="5dp"
+        tools:text="Yeah This is my first post on My Social Network !!"
+        android:textSize="15dp"
+        />
+
+    <ImageView
+        android:id="@+id/iv_post_image"
+        android:layout_width="fill_parent"
+        android:layout_height="400dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:layout_below="@+id/post_text"
+        tools:src="@drawable/DeepakYadav"/>
+    <LinearLayout
+        android:id="@+id/post_details"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_post_image"
+        android:paddingTop="8dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            tools:text="1 person liked this"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            tools:text="1 person shared this"
+            />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_below="@+id/post_details">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background=""
+            android:text="Like"
+            android:drawableLeft="@drawable/ic_favorite_black"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background=""
+            android:text="Comment"
+            android:drawableLeft="@drawable/ic_comment_black"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background=""
+            android:text="Share"
+            android:drawableLeft="@drawable/ic_forward_black"/>
+    </LinearLayout>
 
-</FrameLayout>
+</RelativeLayout>
