@@ -18,6 +18,14 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:visibility="gone" />
+    <TextView
+        android:id="@+id/progress_text"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:visibility="invisible"
+        android:text="Logging You !!"
+        android:textSize="50sp"
+        />
 
     <ScrollView
         android:id="@+id/login_form"
