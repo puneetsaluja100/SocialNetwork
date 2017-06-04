@@ -12,23 +12,24 @@
         android:id="@+id/linear_layout"
         android:padding="5dp"
         >
-
         <ImageButton
             android:id="@+id/ib_profile_picture"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            tools:src="@drawable/ic_face"
+            android:adjustViewBounds="false"
+            tools:src="@drawable/deepak_yadav"
+            android:scaleType="fitCenter"
             />
         <TextView
             android:paddingStart="10dp"
             android:id="@+id/tv_profile_name"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             tools:text="Deepak Yadav"
             android:textStyle="bold"
             android:paddingTop="10dp"
             android:textSize="18sp"
-            android:textColor="fff"
+            android:textColor="#000"
             android:paddingLeft="10dp" />
     </LinearLayout>
 
@@ -45,11 +46,11 @@
     <ImageView
         android:id="@+id/iv_post_image"
         android:layout_width="fill_parent"
-        android:layout_height="400dp"
+        android:layout_height="0dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
         android:layout_below="@+id/post_text"
-        tools:src="@drawable/DeepakYadav"/>
+        tools:src="@drawable/deepak_yadav"/>
     <LinearLayout
         android:id="@+id/post_details"
         android:layout_width="fill_parent"
@@ -80,21 +81,28 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:background=""
+            android:background="#fff"
             android:text="Like"
+            android:paddingLeft="25dp"
+            android:paddingRight="30dp"
+            android:gravity="center"
             android:drawableLeft="@drawable/ic_favorite_black"/>
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:background=""
+            android:background="#fff"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="Comment"
             android:drawableLeft="@drawable/ic_comment_black"/>
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:background=""
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:background="#fff"
             android:text="Share"
             android:drawableLeft="@drawable/ic_forward_black"/>
     </LinearLayout>
