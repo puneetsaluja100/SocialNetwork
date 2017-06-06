@@ -245,11 +245,12 @@ public class SignUp extends AppCompatActivity {
                 Intent intent = new Intent(SignUp.this,LoginActivity.class);
                 startActivity(intent);
                 finish();
-            }else{
-                Context context = getApplicationContext();
-                CharSequence text = "Registration Unsuccessful";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, text, duration);
+            }else if (s.contains( "Email Exists " )){
+                Toast toast = Toast.makeText(getApplicationContext(), "Email Already Existss", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            else {
+                Toast toast = Toast.makeText(getApplicationContext(), "Registration Unsuccessful", Toast.LENGTH_SHORT);
                 toast.show();
             }
         }

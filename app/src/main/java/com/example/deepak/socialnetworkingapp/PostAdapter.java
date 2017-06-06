@@ -51,7 +51,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
         Post post = PostList.get(position);
         holder.mPostText.setText(post.getPostText());
         //TODO(1): ADD SOMETHING FOR THE IMAGE
-
         Picasso.with(holder.mPostImage.getContext())
                 .load("https://qph.ec.quoracdn.net/main-qimg-0102f6e770d2ce1f45bd7066524b8f70")
                 .into(holder.mPostImage);

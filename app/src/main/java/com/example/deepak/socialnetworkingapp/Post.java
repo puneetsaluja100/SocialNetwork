@@ -1,6 +1,4 @@
 package com.example.deepak.socialnetworkingapp;
-
-
 import java.sql.Timestamp;
 
 public class Post {
