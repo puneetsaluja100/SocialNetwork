@@ -1,5 +1,6 @@
 package com.example.deepak.socialnetworkingapp;
 
+import android.content.Context;
 import android.graphics.Movie;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -48,20 +51,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
         Post post = PostList.get(position);
         holder.mPostText.setText(post.getPostText());
         //TODO(1): ADD SOMETHING FOR THE IMAGE
-        URL url = null;  //     http://www.example.com/image_large.png
-        Uri uri = null;
-        try {
-            url = new URL("https://qph.ec.quoracdn.net/main-qimg-0102f6e770d2ce1f45bd7066524b8f70");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        try {
-            uri = Uri.parse( url.toURI().toString() );
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-        holder.mPostImage.setImageURI(null);
-        holder.mPostImage.setImageURI(uri);
+
+        Picasso.with(holder.mPostImage.getContext())
+                .load("https://qph.ec.quoracdn.net/main-qimg-0102f6e770d2ce1f45bd7066524b8f70")
+                .into(holder.mPostImage);
 
     }
 
