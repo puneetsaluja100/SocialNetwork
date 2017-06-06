@@ -9,12 +9,6 @@
     android:orientation="vertical"
     tools:context="com.example.deepak.socialnetworkingapp.upload">
 
-    <ImageView
-        android:id="@+id/imgView"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_weight="1"
-        />
 
     <EditText
         android:id="@+id/editText"
@@ -22,8 +16,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_weight="1"
-        android:text="Select Image"
         />
+
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_weight="1"
+        />
+
+
     <Button
         android:id="@+id/btnSelectImage"
         android:layout_width="match_parent"

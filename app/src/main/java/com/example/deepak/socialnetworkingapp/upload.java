@@ -40,7 +40,9 @@ public class upload extends AppCompatActivity implements View.OnClickListener{
     private static final String TAG = "MainActivity";
     private String UPLOAD_URL = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/upload.php";
     private String KEY_IMAGE = "image";
+    private String KEY_NAME = "name";
     private Bitmap bitmap;
+    String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,9 @@ public class upload extends AppCompatActivity implements View.OnClickListener{
         editTextName = (EditText) findViewById(R.id.editText);
         btnSelectImage.setOnClickListener(this);
         btnUploadImage.setOnClickListener(this);
+
+        email = getIntent().getExtras().getString("email");
+        editTextName.setText("Welcome " + email);
 
     }
 
@@ -113,11 +118,10 @@ public class upload extends AppCompatActivity implements View.OnClickListener{
                     @Override
                     public void onResponse(String s) {
                         //Disimissing the progress dialog
-                        Toast.makeText(upload.this, s , Toast.LENGTH_LONG).show();
+
                         loading.dismiss();
-                        
                         //Showing toast message of the response
-                        //Toast.makeText(upload.this, s , Toast.LENGTH_LONG).show();
+                        Toast.makeText(upload.this, s , Toast.LENGTH_LONG).show();
                     }
                 },
                 new Response.ErrorListener() {
@@ -127,7 +131,7 @@ public class upload extends AppCompatActivity implements View.OnClickListener{
                         loading.dismiss();
 
                         //Showing toast
-                        Toast.makeText(upload.this, volleyError.getMessage().toString(), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(upload.this, volleyError.getMessage().toString(), Toast.LENGTH_LONG).show();
                     }
                 }){
             @Override
@@ -143,7 +147,8 @@ public class upload extends AppCompatActivity implements View.OnClickListener{
 
                 //Adding parameters
                 params.put(KEY_IMAGE, image);
-                //params.put(KEY_NAME, name);
+                params.put("email",email);
+                params.put(KEY_NAME, name);
 
                 //returning parameters
                 return params;
