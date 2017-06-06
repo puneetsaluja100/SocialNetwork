@@ -22,6 +22,8 @@
         android:id="@+id/progress_text_reg"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:visibility="gone"
         android:text="Registering You !!"
         android:textSize="50sp"
