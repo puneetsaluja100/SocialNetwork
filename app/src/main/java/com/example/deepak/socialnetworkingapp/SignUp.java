@@ -43,7 +43,7 @@ public class SignUp extends AppCompatActivity {
     private MysqlCon mAuthTask = null;
 
     private EditText mName,mDob,mEmail,mPassword;
-    private Button mSignUp;
+    private Button mSignUp,mSignIn;
     private View mLoginFormView,mProgressView,mProgressText;
 
 
@@ -57,6 +57,7 @@ public class SignUp extends AppCompatActivity {
         mEmail = (EditText)findViewById(R.id.email);
         mPassword = (EditText)findViewById(R.id.password);
         mSignUp = (Button) findViewById(R.id.email_sign_up_button);
+        mSignIn = (Button) findViewById(R.id.email_sign_in_button);
         mLoginFormView = findViewById(R.id.register_form);
         mProgressView = findViewById(R.id.register_progress);
         mProgressText = (TextView) findViewById(R.id.progress_text_reg);
@@ -65,6 +66,13 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 attemptRegister();
+            }
+        });
+        mSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignUp.this,LoginActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -245,8 +253,10 @@ public class SignUp extends AppCompatActivity {
                 Intent intent = new Intent(SignUp.this,LoginActivity.class);
                 startActivity(intent);
                 finish();
-            }else if (s.contains( "Email Exists " )){
-                Toast toast = Toast.makeText(getApplicationContext(), "Email Already Existss", Toast.LENGTH_SHORT);
+            }else if (s.contains( "Email Exists" )){
+                mEmail.setError("Email Already exists");
+                mEmail.requestFocus();
+                Toast toast = Toast.makeText(getApplicationContext(), " Error : Email Already Exists", Toast.LENGTH_SHORT);
                 toast.show();
             }
             else {
