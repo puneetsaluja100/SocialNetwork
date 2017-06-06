@@ -22,7 +22,7 @@
         android:id="@+id/progress_text"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:visibility="invisible"
+        android:visibility="gone"
         android:text="Logging You !!"
         android:textSize="50sp"
         />
@@ -37,6 +37,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title_login"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:visibility="visible"
+                android:text="Login Here!!"
+                android:textSize="50sp"
+                android:textColor="#EA684C"
+                android:paddingBottom="20dp"
+                />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
