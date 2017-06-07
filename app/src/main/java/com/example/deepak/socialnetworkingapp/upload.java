@@ -104,7 +104,7 @@ public class upload extends AppCompatActivity implements View.OnClickListener{
     public String getStringImage(Bitmap bmp){
         bmp = ((BitmapDrawable) imgView.getDrawable()).getBitmap();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        bmp.compress(Bitmap.CompressFormat.JPEG, 50, baos);
         byte[] imageBytes = baos.toByteArray();
         String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
         return encodedImage;

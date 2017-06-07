@@ -1,53 +1,24 @@
 package com.example.deepak.socialnetworkingapp;
 
-import android.content.res.Configuration;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.view.View;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-
-    //for navigation activity
-//    private ListView mDrawerList;
-//    private ArrayAdapter<String> mstringAdapter;
-//
-//    private ActionBarDrawerToggle mDrawerToggle;
-//    private DrawerLayout mDrawerLayout;
-//    private String mActivityTitle;
-    //
-
-    private List<Post> postList = new ArrayList<>();
-    private RecyclerView recyclerView;
-    private PostAdapter mAdapter;
-
+public class navigation extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-
-
-
-
-        //nav
         setContentView(R.layout.activity_navigation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -69,24 +40,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view_post);
-        mAdapter = new PostAdapter(postList);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(mAdapter);
-        preparePostData();
-
-    }
-
-
-    private void preparePostData() {
-        Post post = new Post(1,"hello ","deepak.jpg","9999-12-31 23:59:59");
-        postList.add(post);
-        post = new Post(2,"HI there ","deepak.jpg","9999-12-31 23:59:59");
-        postList.add(post);
     }
 
     @Override
