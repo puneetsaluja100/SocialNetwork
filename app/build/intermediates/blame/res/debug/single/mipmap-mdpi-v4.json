@@ -4,6 +4,14 @@
         "source": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_launcher_round.png",
+        "source": "E:\\SocialNetworkingApp\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_launcher.png",
+        "source": "E:\\SocialNetworkingApp\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_launcher_round.png",
         "source": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     }

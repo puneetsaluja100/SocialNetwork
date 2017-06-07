@@ -380,7 +380,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             Log.e("Result",s);
             showProgress(false);
             if(s.contains("Login Successful")){
-                Intent intent = new Intent(LoginActivity.this,upload.class);
+                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                 intent.putExtra("email",mEmailView.getText().toString());
                 startActivity(intent);
                 finish();

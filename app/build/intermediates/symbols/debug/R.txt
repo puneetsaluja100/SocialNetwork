@@ -919,7 +919,6 @@ int id text 0x7f0d00bd
 int id text2 0x7f0d00bb
 int id textSpacerNoButtons 0x7f0d0059
 int id textSpacerNoTitle 0x7f0d0058
-int id textView 0x7f0d00a7
 int id text_input_password_toggle 0x7f0d009f
 int id textinput_counter 0x7f0d0009
 int id textinput_error 0x7f0d000a
@@ -938,6 +937,7 @@ int id transition_scene_layoutid_cache 0x7f0d000c
 int id tv_profile_name 0x7f0d00a2
 int id up 0x7f0d000d
 int id useLogo 0x7f0d0020
+int id user_email 0x7f0d00a7
 int id view_offset_helper 0x7f0d000e
 int id visible 0x7f0d00bf
 int id withText 0x7f0d0045

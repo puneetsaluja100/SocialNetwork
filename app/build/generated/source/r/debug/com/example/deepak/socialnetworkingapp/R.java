@@ -3300,7 +3300,6 @@ containing a value of this type.
         public static final int text2=0x7f0d00bb;
         public static final int textSpacerNoButtons=0x7f0d0059;
         public static final int textSpacerNoTitle=0x7f0d0058;
-        public static final int textView=0x7f0d00a7;
         public static final int text_input_password_toggle=0x7f0d009f;
         public static final int textinput_counter=0x7f0d0009;
         public static final int textinput_error=0x7f0d000a;
@@ -3319,6 +3318,7 @@ containing a value of this type.
         public static final int tv_profile_name=0x7f0d00a2;
         public static final int up=0x7f0d000d;
         public static final int useLogo=0x7f0d0020;
+        public static final int user_email=0x7f0d00a7;
         public static final int view_offset_helper=0x7f0d000e;
         public static final int visible=0x7f0d00bf;
         public static final int withText=0x7f0d0045;

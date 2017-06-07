@@ -2,5 +2,9 @@
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\animator-v21\\design_appbar_state_list_animator.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\310e87f7e74a8105abfc0b23bfef09aa\\res\\animator-v21\\design_appbar_state_list_animator.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\animator-v21\\design_appbar_state_list_animator.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2a796c7ecc71006ef717ce99c581bc9c\\res\\animator-v21\\design_appbar_state_list_animator.xml"
     }
 ]
