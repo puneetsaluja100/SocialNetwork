@@ -23,6 +23,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
     private List<Post> PostList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
+        public TextView profileName;
+        public ImageView profilePicture;
         public TextView mPostText;
         public ImageView mPostImage;
 
@@ -30,6 +32,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
             super(view);
             mPostText = (TextView)view.findViewById(R.id.post_text);
             mPostImage = (ImageView)view.findViewById(R.id.iv_post_image);
+            profileName = (TextView) view.findViewById( R.id.tv_profile_name );
+            profilePicture = (ImageView) view.findViewById( R.id.iv_post_image );
         }
     }
 
@@ -53,6 +57,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
         Picasso.with(holder.mPostImage.getContext())
                 .load("https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+post.getPostImage())
                 .into(holder.mPostImage);
+        holder.profileName.setText("Puneet");
+        Picasso.with(holder.profilePicture.getContext())
+                .load("https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+post.getPostImage())
+                .into(holder.profilePicture);
 
     }
 

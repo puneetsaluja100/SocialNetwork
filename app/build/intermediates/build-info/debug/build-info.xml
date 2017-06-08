@@ -2,30 +2,33 @@
 <instant-run
     abi="arm64-v8a,armeabi-v7a,armeabi"
     api-level="API 23"
-    build-mode="HOT_WARM"
+    build-mode="COLD"
     density="420dpi"
     format="10"
     plugin-version="3.0.0-alpha1"
-    timestamp="1496953351199"
+    timestamp="1496954452262"
     token="5049413409436875588"
-    verifier="COMPATIBLE" >
+    verifier="FIELD_ADDED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="237" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="38" />
     <task
         name="verifier"
-        duration="0" />
+        duration="31" />
 
     <artifact
-        location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
-        type="RESOURCES" />
+        location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+        type="SPLIT" />
+    <artifact
+        location="E:\AndroidProjects\SocialNetworkingApp\app\build\outputs\apk\debug\app-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
@@ -70,28 +73,14 @@
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1496953047022"
-        verifier="COLD_SWAP_REQUESTED" >
+        timestamp="1496954452262"
+        verifier="FIELD_ADDED" >
         <artifact
             location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
-    </build>
-    <build
-        build-mode="COLD"
-        timestamp="1496953269587"
-        verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="E:\AndroidProjects\SocialNetworkingApp\app\build\outputs\apk\debug\app-debug.apk"
             type="SPLIT_MAIN" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1496953351199"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
-            type="RESOURCES" />
     </build>
 
 </instant-run>

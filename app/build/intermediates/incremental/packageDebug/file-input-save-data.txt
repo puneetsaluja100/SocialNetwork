@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Jun 08 13:21:15 PDT 2017
+#Thu Jun 08 13:40:53 PDT 2017
 210.set=ANDROID_RESOURCE
 282.file=E\:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\drawable\\abc_vector_test.xml
 14.set=ANDROID_RESOURCE
