@@ -42,7 +42,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_fragment_picture_post, parent, false);
-
         return new MyViewHolder(itemView);
     }
 
@@ -52,7 +51,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
         holder.mPostText.setText(post.getPostText());
         //TODO(1): ADD SOMETHING FOR THE IMAGE
         Picasso.with(holder.mPostImage.getContext())
-                .load("https://qph.ec.quoracdn.net/main-qimg-0102f6e770d2ce1f45bd7066524b8f70")
+                .load("https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+post.getPostImage())
                 .into(holder.mPostImage);
 
     }

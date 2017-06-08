@@ -15,16 +15,26 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-
 
     private List<Post> postList = new ArrayList<>();
     private RecyclerView recyclerView;
@@ -37,22 +47,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-        email = getIntent().getExtras().getString("email");
 
+        //trying to display email
+//        email = getIntent().getExtras().getString("email");
+//        Log.e("email",email);
 
-        Log.e("email",email);
-
-
-
-        //nav
+        //navigation Drawer Activity to make the activity
         setContentView(R.layout.activity_navigation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -62,63 +65,60 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        View header = navigationView.getHeaderView(0);
-        Useremail = (TextView)header.findViewById(R.id.user_email);
-        Useremail.setText(email);
+//        View header = navigationView.getHeaderView(0);
+//        Useremail = (TextView)header.findViewById(R.id.user_email);
+//        Useremail.setText(email);
 
-
+        //To create the recycler view
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_post);
         preparePostData();
-        mAdapter = new PostAdapter(postList);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(mAdapter);
-        preparePostData();
+
+//        preparePostData();
 
     }
 
 
     private void preparePostData() {
-        Post post = new Post(1,"hello ","deepak.jpg","9999-12-31 23:59:59");
-        postList.add(post);
-        post = new Post(2,"HI there ","deepak.jpg","9999-12-31 23:59:59");
-        postList.add(post);
 
+        //Function to populate the post list
         MysqlCon mysqlCon = new MysqlCon();
-        mysqlCon.execute(new String[] {"posts"} );
-        Log.i( "Json",FetchData );
-        String result = "{\"posts\":"+FetchData+"}";
-        postList = parseResult(result);
+        mysqlCon.execute();
     }
 
     public List<Post> parseResult(String result) {
-        List<Post> postList = new ArrayList<>();
-        Post post = new Post();
+        // Function to take json as string and parse it into the post list
+        ArrayList<Post> postList = new ArrayList<>();
+
         try {
             JSONObject jsonObject = new JSONObject(result);
 
             JSONArray jsonArray = jsonObject.getJSONArray("posts");
             for (int i = 0; i < jsonArray.length(); i++) {
+                Post post = new Post();
                 JSONObject reader = jsonArray.getJSONObject(i);
                 Log.i("Json",reader.toString());
                 String read = reader.toString();
                 post.setProfileId(Integer.parseInt(reader.getString("id")));
+                Log.i( "Json", String.valueOf( post.getProfileId() ) );
                 post.setPostImage(reader.getString("post_image"));
                 post.setPostText( reader.getString("post_text") );
                 post.setProfileId( Integer.parseInt( reader.getString( "profile_id" ) ) );
                 post.setPostTime(reader.getString( "post_time" ));
-                postList.add(post);
+                postList.add(i,post);
+                Log.i( "Json post list", postList.get(i).getPostText() );
             }
 
         } catch (JSONException e) {
             e.printStackTrace();
             Log.e( "jsonerror","Error in parsing json" );
         }
+        for(int i =0;i<postList.size();i++){
+            Log.i("Json post list",postList.get(i).getPostText());
+        }
         return postList;
     }
 
-
+    //Functions for navigation drawer activity
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -202,12 +202,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            }
 //        }
 
+
+    //Asynk Task to load post list from the internet
     class MysqlCon extends AsyncTask<String,String,String>
     {
         @Override
         protected String doInBackground(String... params) {
-            String type = params[0];
-            String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+type+".php";
+//            String type = params[0];
+            Log.i("Asynk Task","Asynk task is executing");
+            String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/post.php";
+
+//            long interval = System.currentTimeMillis() + 2000;
+//            while(System.currentTimeMillis()>interval);
 
             try {
                 URL url = new URL(con_url);
@@ -246,7 +252,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             Log.e("Result",s);
-            FetchData = s.toString();
+            FetchData = s;
+            String result = "{\"posts\":"+FetchData+"}";
+            Log.i( "Json",result);
+            postList = parseResult(result);
+//            for(int i =0;i<postList.size();i++){
+//            Log.i("Post List ",postList.get(i).getPostText());
+//            }
+            mAdapter = new PostAdapter(postList);
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+            recyclerView.setLayoutManager(mLayoutManager);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
+            recyclerView.setAdapter(mAdapter);
         }
 
         @Override

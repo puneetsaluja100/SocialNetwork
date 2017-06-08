@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context="com.example.deepak.socialnetworkingapp.FragmentPicturePost">
+    tools:context="com.example.deepak.socialnetworkingapp.FragmentPicturePost"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -110,5 +111,4 @@
             android:text="Share"
             android:drawableLeft="@drawable/ic_share"/>
     </LinearLayout>
-
 </RelativeLayout>
