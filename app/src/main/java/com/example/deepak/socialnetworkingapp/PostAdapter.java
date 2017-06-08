@@ -60,7 +60,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
                 .into(holder.mPostImage);
         holder.profileName.setText(post.getProfileName());
         Picasso.with(holder.profilePicture.getContext())
-                .load("https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+post.getPostImage())
+                .load("https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+post.getProfileImage())
                 .into(holder.profilePicture);
 
     }

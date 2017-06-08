@@ -36,22 +36,27 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
@@ -64,12 +69,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private PostAdapter mAdapter;
     private String email;
     private TextView Useremail;
+    private TextView Username;
+    private ImageView UserImage;
+
+
     public String FetchData;
+    public String Uname;
+    public String Uprofilepicture;
 
     //new uploading post
     private ImageView mimageUpload;
     private EditText mstatusUpload;
     private Button mpostUpload;
+    public String type;
 
 
     private static final int SELECT_PICTURE = 100;
@@ -104,32 +116,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         View header = navigationView.getHeaderView(0);
         Useremail = (TextView)header.findViewById(R.id.user_email);
-        Useremail.setText(email);
-
-
+        UserImage = (ImageView)header.findViewById(R.id.user_image);
+        Username = (TextView)header.findViewById(R.id.user_name);
+        getUserDetails();
 
         mstatusUpload = (EditText)findViewById(R.id.statusUpload);
         mimageUpload = (ImageView)findViewById(R.id.imageUpload);
         mpostUpload = (Button)findViewById(R.id.postUpload);
 
-
-
-
-        mstatusUpload.setText("This is dummy post");
         mimageUpload.setOnClickListener(this);
-
         mpostUpload.setOnClickListener(this);
-
-
-
 
         //To create the recycler view
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_post);
         preparePostData();
 
     }
-
-
 
     /* Choose an image from Gallery */
     void openImageChooser() {
@@ -236,9 +238,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         requestQueue.add(stringRequest);
     }
 
-
-
-
     @Override
     public void onClick(View v) {
         if(v == mimageUpload){
@@ -252,6 +251,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
+    private void getUserDetails() {
+        MysqlConProfileShow mysqlConProfileShow = new MysqlConProfileShow();
+        mysqlConProfileShow.execute("getprofiledetails",email);
+    }
+
     private void preparePostData() {
         //Function to populate the post list
         MysqlCon mysqlCon = new MysqlCon();
@@ -264,7 +268,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         try {
             JSONObject jsonObject = new JSONObject(result);
-
             JSONArray jsonArray = jsonObject.getJSONArray("posts");
             for (int i = 0; i < jsonArray.length(); i++) {
                 Post post = new Post();
@@ -277,19 +280,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 post.setPostText( reader.getString("post_text") );
                 post.setProfileId( Integer.parseInt( reader.getString( "profile_id" ) ) );
                 post.setPostTime(reader.getString( "post_time" ));
-//                post.setProfileImage(reader.getString("profile_image"));
-//                post.setProfileName(reader.getString( "profile_name" ));
+                post.setProfileImage(reader.getString("profile"));
+                post.setProfileName(reader.getString( "name" ));
                 postList.add(i,post);
                 Log.i( "Json post list", postList.get(i).getPostText() );
             }
 
         } catch (JSONException e) {
             e.printStackTrace();
-            Log.e( "jsonerror","Error in parsing json" );
+//            Log.e( "jsonerror","Error in parsing json" );
         }
-        for(int i =0;i<postList.size();i++){
-            Log.i("Json post list",postList.get(i).getPostText());
-        }
+
         return postList;
     }
 
@@ -384,7 +385,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     {
         @Override
         protected String doInBackground(String... params) {
-            String type = params[0];
+            type = params[0];
             Log.i("Asynk Task","Asynk task is executing");
             String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+type+".php";
 
@@ -393,7 +394,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             try {
                 URL url = new URL(con_url);
-                HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setDoInput(true);
@@ -426,16 +427,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            Log.e("Result",s);
-            FetchData = s;
-            String result = "{\"posts\":"+FetchData+"}";
-            Log.i( "Json",result);
-            postList = parseResult(result);
-            mAdapter = new PostAdapter(postList);
-            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-            recyclerView.setLayoutManager(mLayoutManager);
-            recyclerView.setItemAnimator(new DefaultItemAnimator());
-            recyclerView.setAdapter(mAdapter);
+            if(type.equals("post")) {
+                Log.e("Result", s);
+                FetchData = s;
+                String result = "{\"posts\":" + FetchData + "}";
+                Log.i("Json", result);
+                postList = parseResult(result);
+                mAdapter = new PostAdapter(postList);
+                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+                recyclerView.setLayoutManager(mLayoutManager);
+                recyclerView.setItemAnimator(new DefaultItemAnimator());
+                recyclerView.setAdapter(mAdapter);
+            }
         }
 
         @Override
@@ -447,4 +450,96 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         protected void onCancelled() {
         }
     }
+
+//Asynk Task to load Profile image and name list from the internet
+class MysqlConProfileShow extends AsyncTask<String,String,String>
+{
+    @Override
+    protected String doInBackground(String... params) {
+        type = params[0];
+        Log.i("Asynk Task","Asynk task is executing");
+        String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+type+".php";
+
+//            loninterval = System.currentTimeMillis() + 2000;
+//            while(System.currentTimeMillis()>interval);g
+        if(type.equals("getprofiledetails")){
+            String email = params[1];}
+        try {
+            URL url = new URL(con_url);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setRequestMethod("POST");
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.setDoInput(true);
+
+            if(type.equals("getprofiledetails"))
+            { OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+
+                String post_data = URLEncoder.encode("email", "UTF-8") + "=" + URLEncoder.encode(email, "UTF-8");
+
+
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+            }
+            InputStream inputStream  = httpURLConnection.getInputStream();
+            BufferedReader bufferedReader  = new BufferedReader(new InputStreamReader(inputStream,"ISO-8859-1"));
+            String result="";
+            String line;
+
+            while((line=bufferedReader.readLine())!=null){
+                result+=line;
+            }
+            bufferedReader.close();
+            inputStream.close();
+            httpURLConnection.disconnect();
+            return result;
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (ProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+        super.onPostExecute(s);
+            Log.e("Result", s);
+            FetchData = s;
+            String result = "{\"profile details\":" + FetchData + "}";
+            Log.e("Json Result", result);
+            try {
+                JSONObject reader = new JSONObject(result);
+                JSONArray profilearray = reader.getJSONArray("profile details");
+                JSONObject profile = profilearray.getJSONObject(0);
+                Uname = profile.getString("name");
+                Log.e("Username",Uname);
+                Uprofilepicture = profile.getString("profile");
+            } catch (JSONException e) {
+                e.printStackTrace();
+                Log.e("Json error ","Cant do th");
+            }
+            Useremail.setText(email);
+            Username.setText(Uname);
+            Picasso.with(UserImage.getContext())
+                    .load("https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+Uprofilepicture)
+                    .into(UserImage);
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+    }
+
+    @Override
+    protected void onCancelled() {
+    }
+}
 }
