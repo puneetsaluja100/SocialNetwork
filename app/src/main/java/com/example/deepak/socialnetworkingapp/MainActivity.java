@@ -1,6 +1,7 @@
 package com.example.deepak.socialnetworkingapp;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.design.widget.NavigationView;
@@ -14,10 +15,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private PostAdapter mAdapter;
     private String email;
     private TextView Useremail;
+    public String FetchData;
 
 
     @Override
@@ -70,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_post);
+        preparePostData();
         mAdapter = new PostAdapter(postList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -85,7 +84,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         postList.add(post);
         post = new Post(2,"HI there ","deepak.jpg","9999-12-31 23:59:59");
         postList.add(post);
-        String result = "{\"posts\":"+"[{\"id\":\"1\",\"profile_id\":\"5\",\"post_text\":\"Hi op !\",\"post_image\":\"0\",\"post_time\":\"2017-06-05 16:59:33\"},{\"id\":\"2\",\"profile_id\":\"6\",\"post_text\":\"HI Deepak !\",\"post_image\":\"0\",\"post_time\":\"2017-06-05 17:08:07\"},{\"id\":\"3\",\"profile_id\":\"2\",\"post_text\":\"HI PUNEET!\",\"post_image\":\"0\",\"post_time\":\"2017-06-05 17:08:44\"}]"+"}";
+
+        MysqlCon mysqlCon = new MysqlCon();
+        mysqlCon.execute(new String[] {"posts"} );
+        Log.i( "Json",FetchData );
+        String result = "{\"posts\":"+FetchData+"}";
         postList = parseResult(result);
     }
 
@@ -103,7 +106,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 post.setProfileId(Integer.parseInt(reader.getString("id")));
                 post.setPostImage(reader.getString("post_image"));
                 post.setPostText( reader.getString("post_text") );
-                Log.i("Json",post.getPostText());
                 post.setProfileId( Integer.parseInt( reader.getString( "profile_id" ) ) );
                 post.setPostTime(reader.getString( "post_time" ));
                 postList.add(post);
@@ -181,7 +183,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     //Code for loader
-    //        LoaderManager.LoaderCallbacks<List<Post>> loaderCallbacks = new LoaderManager.LoaderCallbacks<List<Post>>() {
+//            LoaderManager.LoaderCallbacks<List<Post>> loaderCallbacks = new LoaderManager.LoaderCallbacks<List<Post>>() {
 //            @Override
 //            public Loader<List<Post>> onCreateLoader(int id, Bundle args) {
 //
@@ -200,4 +202,60 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            }
 //        }
 
+    class MysqlCon extends AsyncTask<String,String,String>
+    {
+        @Override
+        protected String doInBackground(String... params) {
+            String type = params[0];
+            String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+type+".php";
+
+            try {
+                URL url = new URL(con_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+
+
+                InputStream inputStream  = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader  = new BufferedReader(new InputStreamReader(inputStream,"ISO-8859-1"));
+                String result="";
+                String line;
+
+                while((line=bufferedReader.readLine())!=null){
+                    result+=line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return result;
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            } catch (ProtocolException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            Log.e("Result",s);
+            FetchData = s.toString();
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onCancelled() {
+        }
+    }
 }
