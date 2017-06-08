@@ -79,10 +79,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     private void preparePostData() {
-
         //Function to populate the post list
         MysqlCon mysqlCon = new MysqlCon();
-        mysqlCon.execute();
+        mysqlCon.execute(new String[] {"post"});
     }
 
     public List<Post> parseResult(String result) {
@@ -104,6 +103,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 post.setPostText( reader.getString("post_text") );
                 post.setProfileId( Integer.parseInt( reader.getString( "profile_id" ) ) );
                 post.setPostTime(reader.getString( "post_time" ));
+//                post.setProfileImage(reader.getString("profile_image"));
+//                post.setProfileName(reader.getString( "profile_name" ));
                 postList.add(i,post);
                 Log.i( "Json post list", postList.get(i).getPostText() );
             }
@@ -208,12 +209,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     {
         @Override
         protected String doInBackground(String... params) {
-//            String type = params[0];
+            String type = params[0];
             Log.i("Asynk Task","Asynk task is executing");
-            String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/post.php";
+            String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+type+".php";
 
-//            long interval = System.currentTimeMillis() + 2000;
-//            while(System.currentTimeMillis()>interval);
+//            loninterval = System.currentTimeMillis() + 2000;
+//            while(System.currentTimeMillis()>interval);g
 
             try {
                 URL url = new URL(con_url);
@@ -221,7 +222,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setDoInput(true);
-
 
                 InputStream inputStream  = httpURLConnection.getInputStream();
                 BufferedReader bufferedReader  = new BufferedReader(new InputStreamReader(inputStream,"ISO-8859-1"));
@@ -256,9 +256,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             String result = "{\"posts\":"+FetchData+"}";
             Log.i( "Json",result);
             postList = parseResult(result);
-//            for(int i =0;i<postList.size();i++){
-//            Log.i("Post List ",postList.get(i).getPostText());
-//            }
             mAdapter = new PostAdapter(postList);
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
             recyclerView.setLayoutManager(mLayoutManager);

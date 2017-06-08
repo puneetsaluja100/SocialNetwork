@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,7 +34,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
             mPostText = (TextView)view.findViewById(R.id.post_text);
             mPostImage = (ImageView)view.findViewById(R.id.iv_post_image);
             profileName = (TextView) view.findViewById( R.id.tv_profile_name );
-            profilePicture = (ImageView) view.findViewById( R.id.iv_post_image );
+            profilePicture = (ImageView) view.findViewById( R.id.ib_profile_picture );
         }
     }
 
@@ -53,11 +54,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Post post = PostList.get(position);
         holder.mPostText.setText(post.getPostText());
-        //TODO(1): ADD SOMETHING FOR THE IMAGE
+
         Picasso.with(holder.mPostImage.getContext())
                 .load("https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+post.getPostImage())
                 .into(holder.mPostImage);
-        holder.profileName.setText("Puneet");
+        holder.profileName.setText(post.getProfileName());
         Picasso.with(holder.profilePicture.getContext())
                 .load("https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+post.getPostImage())
                 .into(holder.profilePicture);
