@@ -7,6 +7,10 @@ public class Post {
     private String PostImage;
     private String PostTime;
 
+    public Post(){
+
+    }
+
     public Post(int profileId, String postText, String postImage, String postTime) {
         ProfileId = profileId;
         PostText = postText;
