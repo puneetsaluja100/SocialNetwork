@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\menu\\navigation.xml",
+        "source": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\src\\main\\res\\menu\\navigation.xml"
+    },
+    {
+        "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\menu\\activity_navigation_drawer.xml",
+        "source": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\src\\main\\res\\menu\\activity_navigation_drawer.xml"
+    }
+]
