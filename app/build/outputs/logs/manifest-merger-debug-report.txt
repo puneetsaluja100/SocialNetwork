@@ -18,6 +18,7 @@ MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\admin\.grad
 MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.3.1.aar\2b309768d7b2f68a4fe864273676e068\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:25.3.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-compat-25.3.1.aar\d2fe1e9622c9489d12b3e14e7beef0b7\AndroidManifest.xml:17:1-31:12
 MERGED from [com.mcxiaoke.volley:library-aar:1.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-aar-1.0.0.aar\849a3aefafbf226a18dc6911089bc5e7\AndroidManifest.xml:1:70-7:12
+MERGED from [de.hdodenhof:circleimageview:2.1.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\circleimageview-2.1.0.aar\6363616263ae05f9999e6f457c56e68f\AndroidManifest.xml:2:1-11:12
 INJECTED from E:\SocialNetworkingApp\app\src\main\AndroidManifest.xml:2:1-37:12
 INJECTED from E:\SocialNetworkingApp\app\src\main\AndroidManifest.xml:2:1-37:12
 INJECTED from E:\SocialNetworkingApp\app\src\main\AndroidManifest.xml:2:1-37:12
@@ -85,6 +86,8 @@ MERGED from [com.android.support:support-compat:25.3.1] C:\Users\admin\.gradle\c
 MERGED from [com.android.support:support-compat:25.3.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-compat-25.3.1.aar\d2fe1e9622c9489d12b3e14e7beef0b7\AndroidManifest.xml:29:5-20
 MERGED from [com.mcxiaoke.volley:library-aar:1.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-aar-1.0.0.aar\849a3aefafbf226a18dc6911089bc5e7\AndroidManifest.xml:5:5-19
 MERGED from [com.mcxiaoke.volley:library-aar:1.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-aar-1.0.0.aar\849a3aefafbf226a18dc6911089bc5e7\AndroidManifest.xml:5:5-19
+MERGED from [de.hdodenhof:circleimageview:2.1.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\circleimageview-2.1.0.aar\6363616263ae05f9999e6f457c56e68f\AndroidManifest.xml:9:5-20
+MERGED from [de.hdodenhof:circleimageview:2.1.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\circleimageview-2.1.0.aar\6363616263ae05f9999e6f457c56e68f\AndroidManifest.xml:9:5-20
 	android:supportsRtl
 		ADDED from E:\SocialNetworkingApp\app\src\main\AndroidManifest.xml:18:9-35
 	android:label
@@ -163,6 +166,8 @@ MERGED from [com.android.support:support-compat:25.3.1] C:\Users\admin\.gradle\c
 MERGED from [com.android.support:support-compat:25.3.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-compat-25.3.1.aar\d2fe1e9622c9489d12b3e14e7beef0b7\AndroidManifest.xml:21:5-23:58
 MERGED from [com.mcxiaoke.volley:library-aar:1.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-aar-1.0.0.aar\849a3aefafbf226a18dc6911089bc5e7\AndroidManifest.xml:3:5-72
 MERGED from [com.mcxiaoke.volley:library-aar:1.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-aar-1.0.0.aar\849a3aefafbf226a18dc6911089bc5e7\AndroidManifest.xml:3:5-72
+MERGED from [de.hdodenhof:circleimageview:2.1.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\circleimageview-2.1.0.aar\6363616263ae05f9999e6f457c56e68f\AndroidManifest.xml:5:5-7:41
+MERGED from [de.hdodenhof:circleimageview:2.1.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\circleimageview-2.1.0.aar\6363616263ae05f9999e6f457c56e68f\AndroidManifest.xml:5:5-7:41
 INJECTED from E:\SocialNetworkingApp\app\src\main\AndroidManifest.xml
 INJECTED from E:\SocialNetworkingApp\app\src\main\AndroidManifest.xml
 	tools:overrideLibrary

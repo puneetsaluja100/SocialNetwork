@@ -1,6 +1,8 @@
 package com.example.deepak.socialnetworkingapp;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Movie;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
@@ -79,13 +81,16 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
             }
         });
 
-//        CommentButton.setOnClickListener( new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
+        CommentButton.setOnClickListener( new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
 //                postId = post.getPostId();
 //                Log.e("The post id clicked is ", String.valueOf( postId ) );
-//            }
-//        });
+                Intent intent = new Intent(CommentButton.getContext(),comment.class);
+                ((Activity)CommentButton.getContext()).startActivity(intent);
+
+            }
+        });
 //
 //        ShareButton.setOnClickListener( new View.OnClickListener(){
 //            @Override
