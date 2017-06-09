@@ -1,11 +1,11 @@
 [
     {
-        "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_menu_send.xml",
-        "source": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\src\\main\\res\\drawable-v21\\ic_menu_send.xml"
-    },
-    {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_menu_camera.xml",
         "source": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\src\\main\\res\\drawable-v21\\ic_menu_camera.xml"
+    },
+    {
+        "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_menu_send.xml",
+        "source": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\src\\main\\res\\drawable-v21\\ic_menu_send.xml"
     },
     {
         "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",

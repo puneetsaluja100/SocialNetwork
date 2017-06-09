@@ -1,8 +1,6 @@
 package com.example.deepak.socialnetworkingapp;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Movie;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
@@ -29,6 +27,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
     public Button LikeButton;
     public Button CommentButton,ShareButton;
     public int postId;
+    public int Uid;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView profileName;
@@ -50,8 +49,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
     }
 
 
-    public PostAdapter(List<Post> PostList) {
+    public PostAdapter(List<Post> PostList,int uid) {
         this.PostList = PostList;
+        this.Uid = uid;
     }
 
     @Override
