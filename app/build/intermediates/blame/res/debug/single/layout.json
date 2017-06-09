@@ -104,12 +104,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\layout\\notification_action.xml"
     },
     {
-        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\layout\\abc_action_menu_layout.xml"
-    },
-    {
         "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_icon_group.xml",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\layout\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\layout\\abc_action_menu_layout.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\content_navigation.xml",
@@ -310,6 +310,10 @@
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_comment.xml",
+        "source": "E:\\SocialNetworkingApp\\app\\src\\main\\res\\layout\\activity_comment.xml"
     },
     {
         "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
