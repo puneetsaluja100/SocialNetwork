@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -120,7 +121,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Username = (TextView)header.findViewById(R.id.user_name);
         getUserDetails();
 
+        getWindow().setSoftInputMode( WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         mstatusUpload = (EditText)findViewById(R.id.statusUpload);
+        mstatusUpload.clearFocus();
         mimageUpload = (ImageView)findViewById(R.id.imageUpload);
         mpostUpload = (Button)findViewById(R.id.postUpload);
 
@@ -274,7 +277,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 JSONObject reader = jsonArray.getJSONObject(i);
                 Log.i("Json",reader.toString());
                 String read = reader.toString();
-                post.setProfileId(Integer.parseInt(reader.getString("id")));
                 Log.i( "Json", String.valueOf( post.getProfileId() ) );
                 post.setPostImage(reader.getString("post_image"));
                 post.setPostText( reader.getString("post_text") );
@@ -282,6 +284,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 post.setPostTime(reader.getString( "post_time" ));
                 post.setProfileImage(reader.getString("profile"));
                 post.setProfileName(reader.getString( "name" ));
+                post.setPostId( Integer.parseInt( reader.getString( "post_id" ) ) );
                 postList.add(i,post);
                 Log.i( "Json post list", postList.get(i).getPostText() );
             }

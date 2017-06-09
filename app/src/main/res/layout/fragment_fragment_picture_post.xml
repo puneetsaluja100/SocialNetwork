@@ -85,6 +85,7 @@
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:id="@+id/like_button"
             android:layout_height="wrap_content"
             android:background="#fff"
             android:text="Like"
@@ -95,6 +96,7 @@
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:id="@+id/comment_button"
             android:layout_height="wrap_content"
             android:background="#fff"
             android:paddingLeft="10dp"
@@ -104,6 +106,7 @@
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:id="@+id/share_button"
             android:layout_height="wrap_content"
             android:paddingLeft="25dp"
             android:paddingRight="25dp"
