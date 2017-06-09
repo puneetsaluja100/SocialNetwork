@@ -6,5 +6,13 @@
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim-v21\\design_bottom_sheet_slide_out.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\310e87f7e74a8105abfc0b23bfef09aa\\res\\anim-v21\\design_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim-v21\\design_bottom_sheet_slide_out.xml",
+        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2691859eb49b10fc554256270fd8be5c\\res\\anim-v21\\design_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim-v21\\design_bottom_sheet_slide_in.xml",
+        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2691859eb49b10fc554256270fd8be5c\\res\\anim-v21\\design_bottom_sheet_slide_in.xml"
     }
 ]

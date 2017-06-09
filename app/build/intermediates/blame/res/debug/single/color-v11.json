@@ -4,7 +4,15 @@
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
     },
     {
+        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
     }
 ]

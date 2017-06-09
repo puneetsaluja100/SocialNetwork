@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#6d7f8e"
     tools:context="com.example.deepak.socialnetworkingapp.LoginActivity">
 
     <!-- Login progress -->
@@ -38,8 +39,20 @@
             android:id="@+id/email_register_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
+            <TextView
+                android:id="@+id/title"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:visibility="visible"
+                android:text="Social Network App"
+                android:textSize="35sp"
+                android:textColor="#090233"
+                android:paddingBottom="20dp"
+                />
             <TextView
                 android:id="@+id/title_register"
                 android:layout_gravity="center"
@@ -48,8 +61,8 @@
                 android:layout_width="wrap_content"
                 android:visibility="visible"
                 android:text="Register Here!!"
-                android:textSize="50sp"
-                android:textColor="#EA684C"
+                android:textSize="30sp"
+                android:textColor="#090233"
                 android:paddingBottom="20dp"
                 />
             <android.support.design.widget.TextInputLayout

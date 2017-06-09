@@ -3,12 +3,12 @@
     build-mode="FULL"
     format="10"
     plugin-version="3.0.0-alpha1"
-    timestamp="1496882897241"
+    timestamp="1496988509264"
     verifier="NOT_RUN" >
 
     <task
         name="javac"
-        duration="116" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
@@ -19,17 +19,9 @@
         name="verifier"
         duration="0" />
 
-    <artifact
-        location="E:\AndroidProjects\SocialNetworkingApp\app\build\outputs\apk\debug\app-debug.apk"
-        type="MAIN" />
-
     <build
         build-mode="FULL"
-        timestamp="1496882897241"
-        verifier="NOT_RUN" >
-        <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\outputs\apk\debug\app-debug.apk"
-            type="MAIN" />
-    </build>
+        timestamp="1496988509264"
+        verifier="NOT_RUN" />
 
 </instant-run>
