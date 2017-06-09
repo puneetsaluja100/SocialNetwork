@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -120,7 +121,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Username = (TextView)header.findViewById(R.id.user_name);
         getUserDetails();
 
+        getWindow().setSoftInputMode( WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         mstatusUpload = (EditText)findViewById(R.id.statusUpload);
+        mstatusUpload.clearFocus();
         mimageUpload = (ImageView)findViewById(R.id.imageUpload);
         mpostUpload = (Button)findViewById(R.id.postUpload);
 

@@ -6,7 +6,7 @@
     density="420dpi"
     format="10"
     plugin-version="3.0.0-alpha1"
-    timestamp="1497047622456"
+    timestamp="1497049026815"
     token="5049413409436875588"
     verifier="NO_CHANGES" >
 
@@ -86,7 +86,39 @@
     </build>
     <build
         build-mode="HOT_WARM"
-        timestamp="1497047622456"
+        timestamp="1497048521866"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\builds\debug\1497048521866\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        build-mode="HOT_WARM"
+        timestamp="1497048647856"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\builds\debug\1497048647856\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        build-mode="HOT_WARM"
+        timestamp="1497048748763"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\builds\debug\1497048748763\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        build-mode="HOT_WARM"
+        timestamp="1497048951438"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+            type="RESOURCES" />
+    </build>
+    <build
+        build-mode="HOT_WARM"
+        timestamp="1497049026815"
         verifier="NO_CHANGES" />
 
 </instant-run>
