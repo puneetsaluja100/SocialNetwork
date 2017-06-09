@@ -274,7 +274,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 JSONObject reader = jsonArray.getJSONObject(i);
                 Log.i("Json",reader.toString());
                 String read = reader.toString();
-                post.setProfileId(Integer.parseInt(reader.getString("id")));
                 Log.i( "Json", String.valueOf( post.getProfileId() ) );
                 post.setPostImage(reader.getString("post_image"));
                 post.setPostText( reader.getString("post_text") );
@@ -282,6 +281,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 post.setPostTime(reader.getString( "post_time" ));
                 post.setProfileImage(reader.getString("profile"));
                 post.setProfileName(reader.getString( "name" ));
+                post.setPostId( Integer.parseInt( reader.getString( "post_id" ) ) );
                 postList.add(i,post);
                 Log.i( "Json post list", postList.get(i).getPostText() );
             }

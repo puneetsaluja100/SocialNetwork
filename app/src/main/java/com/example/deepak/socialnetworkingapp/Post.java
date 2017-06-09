@@ -3,6 +3,7 @@ import java.sql.Timestamp;
 
 public class Post {
     private int ProfileId;
+    private int PostId;
     private String PostText;
     private String PostImage;
     private String PostTime;
@@ -11,9 +12,9 @@ public class Post {
 
     public Post(){
     }
-
-    public Post(int profileId, String postText, String postImage, String postTime, String profileImage, String profileName) {
+    public Post(int profileId, int postId, String postText, String postImage, String postTime, String profileImage, String profileName) {
         ProfileId = profileId;
+        PostId = postId;
         PostText = postText;
         PostImage = postImage;
         PostTime = postTime;
@@ -27,6 +28,14 @@ public class Post {
 
     public void setProfileId(int profileId) {
         ProfileId = profileId;
+    }
+
+    public int getPostId() {
+        return PostId;
+    }
+
+    public void setPostId(int postId) {
+        PostId = postId;
     }
 
     public String getPostText() {
