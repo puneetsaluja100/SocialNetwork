@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\design_password_eye.xml",
+        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2691859eb49b10fc554256270fd8be5c\\res\\drawable-v21\\design_password_eye.xml"
+    },
+    {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_menu_camera.xml",
         "source": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\src\\main\\res\\drawable-v21\\ic_menu_camera.xml"
     },
@@ -8,8 +12,16 @@
         "source": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\src\\main\\res\\drawable-v21\\ic_menu_send.xml"
     },
     {
+        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_menu_camera.xml",
+        "source": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\src\\main\\res\\drawable-v21\\ic_menu_camera.xml"
+    },
+    {
         "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\drawable-v21\\notification_action_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\drawable-v21\\abc_btn_colored_material.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
@@ -36,16 +48,32 @@
         "source": "E:\\SocialNetworkingApp\\app\\src\\main\\res\\drawable-v21\\ic_menu_share.xml"
     },
     {
+        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_menu_share.xml",
+        "source": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\src\\main\\res\\drawable-v21\\ic_menu_share.xml"
+    },
+    {
         "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\avd_show_password.xml",
+        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2691859eb49b10fc554256270fd8be5c\\res\\drawable-v21\\avd_show_password.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\avd_hide_password.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\310e87f7e74a8105abfc0b23bfef09aa\\res\\drawable-v21\\avd_hide_password.xml"
     },
     {
+        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
+        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\drawable-v21\\notification_action_background.xml"
+    },
+    {
         "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\avd_show_password.xml",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2a796c7ecc71006ef717ce99c581bc9c\\res\\drawable-v21\\avd_show_password.xml"
+    },
+    {
+        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_menu_gallery.xml",
+        "source": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\src\\main\\res\\drawable-v21\\ic_menu_gallery.xml"
     },
     {
         "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_menu_camera.xml",
@@ -60,12 +88,24 @@
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\310e87f7e74a8105abfc0b23bfef09aa\\res\\drawable-v21\\design_password_eye.xml"
     },
     {
+        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_menu_manage.xml",
+        "source": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\src\\main\\res\\drawable-v21\\ic_menu_manage.xml"
+    },
+    {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_menu_manage.xml",
         "source": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\src\\main\\res\\drawable-v21\\ic_menu_manage.xml"
     },
     {
+        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\drawable-v21\\abc_edit_text_material.xml"
+    },
+    {
         "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_menu_slideshow.xml",
         "source": "E:\\SocialNetworkingApp\\app\\src\\main\\res\\drawable-v21\\ic_menu_slideshow.xml"
+    },
+    {
+        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\design_bottom_navigation_item_background.xml",
+        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2691859eb49b10fc554256270fd8be5c\\res\\drawable-v21\\design_bottom_navigation_item_background.xml"
     },
     {
         "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\avd_hide_password.xml",
@@ -82,6 +122,14 @@
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\avd_show_password.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\310e87f7e74a8105abfc0b23bfef09aa\\res\\drawable-v21\\avd_show_password.xml"
+    },
+    {
+        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\avd_hide_password.xml",
+        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2691859eb49b10fc554256270fd8be5c\\res\\drawable-v21\\avd_hide_password.xml"
+    },
+    {
+        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_menu_slideshow.xml",
+        "source": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\src\\main\\res\\drawable-v21\\ic_menu_slideshow.xml"
     },
     {
         "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_menu_gallery.xml",
@@ -106,6 +154,14 @@
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_menu_send.xml",
+        "source": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\src\\main\\res\\drawable-v21\\ic_menu_send.xml"
     },
     {
         "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_menu_manage.xml",

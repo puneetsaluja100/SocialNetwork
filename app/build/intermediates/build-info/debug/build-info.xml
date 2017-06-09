@@ -1,80 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="armeabi-v7a,armeabi"
-    api-level="API 23"
-    build-mode="HOT_WARM"
-    density="xhdpi"
+    build-mode="FULL"
     format="10"
     plugin-version="3.0.0-alpha1"
-    timestamp="1496944608482"
-    token="8110716986678641732"
-    verifier="COMPATIBLE" >
+    timestamp="1496992734498"
+    verifier="NOT_RUN" >
 
     <task
         name="javac"
-        duration="1450" />
+        duration="1309" />
     <task
         name="instant-run-dex"
-        duration="977" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="977" />
+        duration="0" />
     <task
         name="verifier"
-        duration="128" />
+        duration="0" />
 
     <artifact
-        location="E:\SocialNetworkingApp\app\build\intermediates\reload-dex\debug\classes.dex"
-        type="RELOAD_DEX" />
+        location="C:\Users\OMPRAKASH\AndroidStudioProjects\SocialNetworkingApp\app\build\outputs\apk\debug\app-debug.apk"
+        type="MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1496943802157"
-        verifier="FULL_BUILD_REQUESTED" >
+        timestamp="1496992734498"
+        verifier="NOT_RUN" >
         <artifact
-            location="E:\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\SocialNetworkingApp\app\build\outputs\apk\debug\app-debug.apk"
-            type="SPLIT_MAIN" />
-        <artifact
-            location="E:\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\SocialNetworkingApp\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-            type="SPLIT" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1496944608482"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="E:\SocialNetworkingApp\app\build\intermediates\reload-dex\debug\classes.dex"
-            type="RELOAD_DEX" />
+            location="C:\Users\OMPRAKASH\AndroidStudioProjects\SocialNetworkingApp\app\build\outputs\apk\debug\app-debug.apk"
+            type="MAIN" />
     </build>
 
 </instant-run>

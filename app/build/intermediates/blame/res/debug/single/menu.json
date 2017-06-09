@@ -4,6 +4,10 @@
         "source": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\src\\main\\res\\menu\\navigation.xml"
     },
     {
+        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\menu\\activity_navigation_drawer.xml",
+        "source": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\src\\main\\res\\menu\\activity_navigation_drawer.xml"
+    },
+    {
         "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\menu\\activity_navigation_drawer.xml",
         "source": "E:\\SocialNetworkingApp\\app\\src\\main\\res\\menu\\activity_navigation_drawer.xml"
     },
@@ -14,5 +18,9 @@
     {
         "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\menu\\navigation.xml",
         "source": "E:\\SocialNetworkingApp\\app\\src\\main\\res\\menu\\navigation.xml"
+    },
+    {
+        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\menu\\navigation.xml",
+        "source": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\src\\main\\res\\menu\\navigation.xml"
     }
 ]
