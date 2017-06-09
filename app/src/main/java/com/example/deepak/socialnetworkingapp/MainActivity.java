@@ -341,12 +341,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_camera) {
 //            Intent intent = new Intent(MainActivity.this,upload.class);
-//            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//            drawer.closeDrawer(GravityCompat.START);
-//            startActivity(intent);
-            // Handle the camera action
 
-            startActivity(new Intent(MainActivity.this,upload.class));
+            startActivity(new Intent(MainActivity.this,upload.class).putExtra("email",email));
+
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {

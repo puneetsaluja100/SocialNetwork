@@ -6,11 +6,22 @@ package com.example.deepak.socialnetworkingapp;
 
 public class comment_recycler {
 
-    String comment,image;
+    String comment,image,profilename;
 
-    public comment_recycler(String comment, String image) {
+    public comment_recycler(){}
+
+    public comment_recycler(String comment, String image,String profilename) {
         this.comment = comment;
         this.image = image;
+        this.profilename = profilename;
+    }
+
+    public String getProfilename() {
+        return profilename;
+    }
+
+    public void setProfilename(String profilename) {
+        this.profilename = profilename;
     }
 
     public String getComment() {

@@ -56,8 +56,8 @@ public class upload extends AppCompatActivity implements View.OnClickListener{
         btnSelectImage.setOnClickListener(this);
         btnUploadImage.setOnClickListener(this);
 
-      //  email = getIntent().getExtras().getString("email");
-        //editTextName.setText("Welcome " + email);
+        email = getIntent().getExtras().getString("email");
+        editTextName.setText("Welcome " + email);
 
     }
 

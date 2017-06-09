@@ -42,7 +42,7 @@
         android:layout_below="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/commenttext" />
+        android:layout_above="@+id/etcommenttext" />
 
     <View
         android:layout_width="match_parent"
@@ -55,13 +55,13 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/commenttext"
-        android:layout_toLeftOf="@+id/send"
+        android:id="@+id/et_commenttext"
+        android:layout_toLeftOf="@+id/send_comment"
         android:paddingLeft="16dp"
         android:textSize="16sp"
 
         android:hint="Add a comment here"
-        android:layout_alignTop="@+id/send"
+        android:layout_alignTop="@+id/send_comment"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true" />
@@ -69,7 +69,7 @@
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:id="@+id/send"
+        android:id="@+id/send_comment"
         android:src="@drawable/ic_action_send_now"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
