@@ -4,84 +4,72 @@
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\anim\\abc_slide_in_top.xml"
     },
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_out.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2691859eb49b10fc554256270fd8be5c\\res\\anim\\design_snackbar_out.xml"
-    },
-    {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_out.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\310e87f7e74a8105abfc0b23bfef09aa\\res\\anim\\design_fab_out.xml"
-    },
-    {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_in.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2691859eb49b10fc554256270fd8be5c\\res\\anim\\design_bottom_sheet_slide_in.xml"
-    },
-    {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\anim\\abc_slide_in_bottom.xml"
     },
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\anim\\abc_slide_out_bottom.xml"
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\anim\\abc_fade_out.xml"
     },
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\anim\\abc_slide_in_top.xml"
-    },
-    {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_out.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2691859eb49b10fc554256270fd8be5c\\res\\anim\\design_fab_out.xml"
-    },
-    {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_in.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2691859eb49b10fc554256270fd8be5c\\res\\anim\\design_fab_in.xml"
-    },
-    {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\anim\\abc_fade_in.xml"
-    },
-    {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\anim\\abc_popup_exit.xml"
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\anim\\abc_slide_out_bottom.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\anim\\abc_slide_out_bottom.xml"
     },
     {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_out.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2a796c7ecc71006ef717ce99c581bc9c\\res\\anim\\design_fab_out.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_in.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2a796c7ecc71006ef717ce99c581bc9c\\res\\anim\\design_fab_in.xml"
+    },
+    {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_out.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\310e87f7e74a8105abfc0b23bfef09aa\\res\\anim\\design_snackbar_out.xml"
-    },
-    {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
-    },
-    {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\anim\\abc_slide_in_bottom.xml"
-    },
-    {
-        "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_in.xml",
-        "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\310e87f7e74a8105abfc0b23bfef09aa\\res\\anim\\design_snackbar_in.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_in.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\310e87f7e74a8105abfc0b23bfef09aa\\res\\anim\\design_bottom_sheet_slide_in.xml"
     },
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\anim\\abc_slide_out_top.xml"
+        "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_in.xml",
+        "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\310e87f7e74a8105abfc0b23bfef09aa\\res\\anim\\design_snackbar_in.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\anim\\abc_fade_in.xml"
     },
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\anim\\abc_fade_out.xml"
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_out.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2a796c7ecc71006ef717ce99c581bc9c\\res\\anim\\design_snackbar_out.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
@@ -92,24 +80,28 @@
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
     },
     {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_in.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2a796c7ecc71006ef717ce99c581bc9c\\res\\anim\\design_snackbar_in.xml"
+    },
+    {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
     },
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_out.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2691859eb49b10fc554256270fd8be5c\\res\\anim\\design_bottom_sheet_slide_out.xml"
-    },
-    {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_in.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2691859eb49b10fc554256270fd8be5c\\res\\anim\\design_snackbar_in.xml"
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_out.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2a796c7ecc71006ef717ce99c581bc9c\\res\\anim\\design_bottom_sheet_slide_out.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\anim\\abc_popup_enter.xml"
     },
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\anim\\abc_popup_enter.xml"
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_in.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2a796c7ecc71006ef717ce99c581bc9c\\res\\anim\\design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_out.xml",
@@ -118,6 +110,14 @@
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_in.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\310e87f7e74a8105abfc0b23bfef09aa\\res\\anim\\design_fab_in.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\anim\\abc_slide_out_top.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",

@@ -34,27 +34,17 @@
         android:textSize="50sp"
         />
 
+    <ScrollView
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_gravity="center"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:visibility="visible"
-                android:text="Social Network App"
-                android:textSize="35sp"
-                android:textColor="#EFF4F5"
-                android:paddingBottom="20dp"
-                />
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView"
-                android:src="@drawable/social_network"
-                android:layout_below="@+id/title_login"
-                android:layout_centerHorizontal="true"
+        <LinearLayout
+            android:id="@+id/email_login_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-                />
             <TextView
                 android:id="@+id/title_login"
                 android:layout_gravity="center"

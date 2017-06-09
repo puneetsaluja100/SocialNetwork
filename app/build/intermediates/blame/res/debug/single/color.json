@@ -1,123 +1,147 @@
 [
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_light.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color\\switch_thumb_material_light.xml"
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\color\\switch_thumb_material_dark.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_btn_colored_borderless_text_material.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\color\\abc_btn_colored_borderless_text_material.xml"
     },
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\design_tint_password_toggle.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2691859eb49b10fc554256270fd8be5c\\res\\color\\design_tint_password_toggle.xml"
-    },
-    {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_btn_checkable.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\color\\abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_hint_foreground_material_light.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\color\\abc_hint_foreground_material_light.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_default.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\color\\abc_tint_default.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_light.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\color\\abc_primary_text_material_light.xml"
     },
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_light.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color\\abc_secondary_text_material_light.xml"
-    },
-    {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_edittext.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color\\abc_tint_edittext.xml"
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_edittext.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\color\\abc_tint_edittext.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\color\\abc_secondary_text_material_dark.xml"
     },
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\design_error.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2691859eb49b10fc554256270fd8be5c\\res\\color\\design_error.xml"
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_btn_checkable.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\color\\abc_tint_btn_checkable.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_hint_foreground_material_dark.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\color\\abc_hint_foreground_material_dark.xml"
     },
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color\\switch_thumb_material_dark.xml"
-    },
-    {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_btn_colored_text_material.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color\\abc_btn_colored_text_material.xml"
-    },
-    {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_edittext.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\color\\abc_tint_edittext.xml"
     },
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_switch_track.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color\\abc_tint_switch_track.xml"
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\design_error.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2a796c7ecc71006ef717ce99c581bc9c\\res\\color\\design_error.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\color\\abc_primary_text_disable_only_material_light.xml"
     },
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_btn_colored_borderless_text_material.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color\\abc_btn_colored_borderless_text_material.xml"
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_btn_colored_text_material.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\color\\abc_btn_colored_text_material.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_switch_thumb.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\color\\abc_tint_switch_thumb.xml"
     },
     {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\color\\abc_secondary_text_material_dark.xml"
+    },
+    {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_spinner.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\color\\abc_tint_spinner.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_switch_track.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\color\\abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_hint_foreground_material_dark.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\color\\abc_hint_foreground_material_dark.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_search_url_text.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\color\\abc_search_url_text.xml"
     },
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_spinner.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color\\abc_tint_spinner.xml"
-    },
-    {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_seek_thumb.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\color\\abc_tint_seek_thumb.xml"
     },
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_hint_foreground_material_dark.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color\\abc_hint_foreground_material_dark.xml"
-    },
-    {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_btn_checkable.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color\\abc_tint_btn_checkable.xml"
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_dark.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\color\\abc_primary_text_material_dark.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\design_tint_password_toggle.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\310e87f7e74a8105abfc0b23bfef09aa\\res\\color\\design_tint_password_toggle.xml"
     },
     {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_dark.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_light.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\color\\switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_seek_thumb.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\color\\abc_tint_seek_thumb.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\color\\switch_thumb_material_dark.xml"
     },
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_seek_thumb.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color\\abc_tint_seek_thumb.xml"
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_search_url_text.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\color\\abc_search_url_text.xml"
     },
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_search_url_text.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color\\abc_search_url_text.xml"
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\color\\abc_primary_text_disable_only_material_light.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_hint_foreground_material_light.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\color\\abc_hint_foreground_material_light.xml"
     },
     {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\design_tint_password_toggle.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2a796c7ecc71006ef717ce99c581bc9c\\res\\color\\design_tint_password_toggle.xml"
+    },
+    {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\design_error.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\310e87f7e74a8105abfc0b23bfef09aa\\res\\color\\design_error.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_light.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\color\\abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_light.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\color\\switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_spinner.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\color\\abc_tint_spinner.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_btn_colored_borderless_text_material.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\color\\abc_btn_colored_borderless_text_material.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_light.xml",
@@ -132,47 +156,23 @@
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\color\\abc_tint_switch_track.xml"
     },
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color\\abc_secondary_text_material_dark.xml"
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_light.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\color\\abc_secondary_text_material_light.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_btn_colored_text_material.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\color\\abc_btn_colored_text_material.xml"
     },
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_dark.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color\\abc_primary_text_material_dark.xml"
-    },
-    {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color\\abc_primary_text_disable_only_material_light.xml"
-    },
-    {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_switch_thumb.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color\\abc_tint_switch_thumb.xml"
-    },
-    {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_hint_foreground_material_light.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color\\abc_hint_foreground_material_light.xml"
-    },
-    {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_dark.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
-    },
-    {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_light.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color\\abc_primary_text_material_light.xml"
-    },
-    {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_default.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color\\abc_tint_default.xml"
     },
     {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_default.xml",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\color\\abc_tint_default.xml"
     },
     {
-        "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_dark.xml",
-        "source": "C:\\Users\\OMPRAKASH\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7bb564b7b7c15df2fa83aa9b2332e170\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_switch_thumb.xml",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\fc71f10b6cc8a77b8c12daf896b45b3b\\res\\color\\abc_tint_switch_thumb.xml"
     }
 ]

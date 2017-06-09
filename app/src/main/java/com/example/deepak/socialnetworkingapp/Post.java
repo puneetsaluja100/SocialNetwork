@@ -6,16 +6,19 @@ public class Post {
     private String PostText;
     private String PostImage;
     private String PostTime;
+    private String ProfileImage;
+    private String ProfileName;
 
     public Post(){
-
     }
 
-    public Post(int profileId, String postText, String postImage, String postTime) {
+    public Post(int profileId, String postText, String postImage, String postTime, String profileImage, String profileName) {
         ProfileId = profileId;
         PostText = postText;
         PostImage = postImage;
         PostTime = postTime;
+        ProfileImage = profileImage;
+        ProfileName = profileName;
     }
 
     public int getProfileId() {
@@ -48,5 +51,21 @@ public class Post {
 
     public void setPostTime(String postTime) {
         PostTime = postTime;
+    }
+
+    public String getProfileImage() {
+        return ProfileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        ProfileImage = profileImage;
+    }
+
+    public String getProfileName() {
+        return ProfileName;
+    }
+
+    public void setProfileName(String profileName) {
+        ProfileName = profileName;
     }
 }
