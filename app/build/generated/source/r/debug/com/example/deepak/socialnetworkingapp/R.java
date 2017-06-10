@@ -3563,8 +3563,8 @@ containing a value of this type.
         public static final int design_navigation_menu_item=0x7f040030;
         public static final int design_text_input_password_icon=0x7f040031;
         public static final int fragment_fragment_picture_post=0x7f040032;
-        public static final int fragment_item=0x7f040033;
-        public static final int fragment_item_list=0x7f040034;
+        public static final int notification_list =0x7f040033;
+        public static final int notification_outer =0x7f040034;
         public static final int nav_header_navigation=0x7f040035;
         public static final int notification_action=0x7f040036;
         public static final int notification_action_tombstone=0x7f040037;

@@ -1,77 +1,74 @@
 package com.example.deepak.socialnetworkingapp;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.deepak.socialnetworkingapp.Notification_fragment.OnListFragmentInteractionListener;
-import com.example.deepak.socialnetworkingapp.dummy.DummyContent.DummyItem;
+//import com.example.deepak.socialnetworkingapp.Notification_fragment.OnListFragmentInteractionListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
- * specified {@link OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
- */
-public class notification_adapter extends RecyclerView.Adapter<notification_adapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
-    private final OnListFragmentInteractionListener mListener;
+public class notification_adapter extends RecyclerView.Adapter<notification_adapter.MyViewHolder> {
 
-    public notification_adapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
-        mValues = items;
-        mListener = listener;
+
+    private List<notificationObject> notificationList;
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        public TextView notification_text,notification_profile_name;
+        public de.hdodenhof.circleimageview.CircleImageView notification_image;
+
+        public MyViewHolder(View view) {
+            super(view);
+            notification_text = (TextView) view.findViewById(R.id.notification_text);
+            notification_image = (de.hdodenhof.circleimageview.CircleImageView) view.findViewById(R.id.notification_pic);
+            notification_profile_name = (TextView) view.findViewById(R.id.notification_profilename);
+        }
+    }
+
+    public notification_adapter(List<notificationObject> notificationList) {
+        this.notificationList = notificationList;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from( parent.getContext() )
-                .inflate( R.layout.fragment_item, parent, false );
-        return new ViewHolder( view );
+    public notification_adapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.comments_layout, parent, false);
+
+        return new notification_adapter.MyViewHolder(itemView);
     }
 
-    @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get( position );
-        holder.mIdView.setText( mValues.get( position ).id );
-        holder.mContentView.setText( mValues.get( position ).content );
 
-        holder.mView.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (null != mListener) {
-                    // Notify the active callbacks interface (the activity, if the
-                    // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction( holder.mItem );
-                }
-            }
-        } );
+    @Override
+    public void onBindViewHolder(notification_adapter.MyViewHolder holder, int position) {
+
+        notificationObject notification = notificationList.get(position);
+        //Log.e("comment ",comment.getComment());
+        int type = Integer.valueOf(  notification.getNotification_type());
+        if(type==0)
+        {
+            holder.notification_text.setText("Commented on your Post");
+        }
+        else if(type==1)
+        {
+            holder.notification_text.setText("Liked on your Post");
+        }
+        holder.notification_profile_name.setText(notification.getName());
+        Picasso.with(holder.notification_image.getContext())
+                .load("https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+notification.getProfile())
+                .into(holder.notification_image);
     }
 
     @Override
     public int getItemCount() {
-        return mValues.size();
+        return notificationList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
-        public DummyItem mItem;
 
-        public ViewHolder(View view) {
-            super( view );
-            mView = view;
-            mIdView = (TextView) view.findViewById( R.id.id );
-            mContentView = (TextView) view.findViewById( R.id.content );
-        }
 
-        @Override
-        public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
-        }
-    }
+
 }

@@ -1,109 +1,157 @@
 package com.example.deepak.socialnetworkingapp;
 
-import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.deepak.socialnetworkingapp.dummy.DummyContent;
-import com.example.deepak.socialnetworkingapp.dummy.DummyContent.DummyItem;
+//import com.example.deepak.socialnetworkingapp.dummy.DummyContent;
+//import com.example.deepak.socialnetworkingapp.dummy.DummyContent.DummyItem;
 
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-/**
- * A fragment representing a list of Items.
- * <p/>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
- * interface.
- */
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+
+
 public class Notification_fragment extends Fragment {
 
-    // TODO: Customize parameter argument names
-    private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
-    private int mColumnCount = 1;
-    private OnListFragmentInteractionListener mListener;
-
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
-    public Notification_fragment() {
-    }
-
-    // TODO: Customize parameter initialization
-    @SuppressWarnings("unused")
-    public static Notification_fragment newInstance(int columnCount) {
-        Notification_fragment fragment = new Notification_fragment();
-        Bundle args = new Bundle();
-        args.putInt( ARG_COLUMN_COUNT, columnCount );
-        fragment.setArguments( args );
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate( savedInstanceState );
-
-        if (getArguments() != null) {
-            mColumnCount = getArguments().getInt( ARG_COLUMN_COUNT );
-        }
-    }
+    private int Uid;
+    private RecyclerView recyclerView;
+    private notification_adapter mAdapter;
+    private ArrayList<notificationObject> notificationList = new ArrayList<>();
+    private String FetchData;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate( R.layout.fragment_item_list, container, false );
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.notification_outer, container, false);
 
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager( new LinearLayoutManager( context ) );
-            } else {
-                recyclerView.setLayoutManager( new GridLayoutManager( context, mColumnCount ) );
+    }
+
+    class MysqlConNotificationShow extends AsyncTask<String,String,String>
+    {
+        @Override
+        protected String doInBackground(String... params) {
+            String type = params[0]; //getPostComments
+            Log.i("Asynk Task","Asynk task is executing");
+            String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+type+".php";
+
+            String Uid = params[1];
+            try {
+                URL url = new URL(con_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+
+
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+
+                String post_data = URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(Uid, "UTF-8");
+
+
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+
+                InputStream inputStream  = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader  = new BufferedReader(new InputStreamReader(inputStream,"ISO-8859-1"));
+                String result="";
+                String line;
+
+                while((line=bufferedReader.readLine())!=null){
+                    result+=line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return result;
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            } catch (ProtocolException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            recyclerView.setAdapter( new notification_adapter( DummyContent.ITEMS, mListener ) );
+            return null;
         }
-        return view;
-    }
 
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            //showProgress( false );
+            Log.e("Result", s);
+            FetchData = s;
+            String result = "{\"notifications\":" + FetchData + "}";
+            Log.i("Json", result);
+            notificationList = parseNotificationResult(result);
+            mAdapter = new notification_adapter(notificationList);
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+            recyclerView.setLayoutManager(mLayoutManager);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
+            recyclerView.setAdapter(mAdapter);
+        }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach( context );
-        if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException( context.toString()
-                    + " must implement OnListFragmentInteractionListener" );
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onCancelled() {
         }
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
+    private ArrayList<notificationObject> parseNotificationResult(String result) {
+        ArrayList<notificationObject> notificationList = new ArrayList<>();
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        try {
+            JSONObject jsonObject = new JSONObject(result);
+            JSONArray jsonArray = jsonObject.getJSONArray("notification");
+            for (int i = 0; i < jsonArray.length(); i++) {
+                notificationObject notification = new notificationObject();
+                JSONObject reader = jsonArray.getJSONObject(i);
+                Log.i("Json",reader.toString());
+                notification.setName(reader.getString("name"));
+                notification.setProfile(reader.getString("profile"));
+                notification.setNotification_type(reader.getString("notification_type"));
+                notification.setNotification_state(reader.getString("notification_state"));
+                notificationList.add(i,notification);
+                Log.i( "Json post list", notificationList.get(i).getName() );
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+//            Log.e( "jsonerror","Error in parsing json" );
+        }
+
+        return notificationList;
     }
 }

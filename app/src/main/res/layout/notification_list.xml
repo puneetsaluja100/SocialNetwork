@@ -26,7 +26,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/deepak_yadav"
-                android:id="@+id/comment_pic"
+                android:id="@+id/notification_pic"
                 app:civ_border_color="#FF000000"/>
 
             <LinearLayout
