@@ -14,7 +14,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#05305D"
+    android:background="@drawable/background_2"
     tools:context="com.example.deepak.socialnetworkingapp.LoginActivity">
 
     <!-- Login progress -->
@@ -35,22 +35,30 @@
         />
 
     <ScrollView
-        android:id="@+id/login_form"
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <LinearLayout
             android:id="@+id/email_login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Social Network App"
+               android:textSize="38dp"
+               android:textColor="#EFF4F5"
+               />
             <TextView
                 android:id="@+id/title_login"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:visibility="visible"
+                android:layout_marginTop="60dp"
                 android:text="Login Here!!"
                 android:textSize="30sp"
                 android:textColor="#EFF4F5"
@@ -103,6 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/action_sign_in_short"
+                android:textColor="@color/colorPrimary"
                 android:textStyle="bold" />
 
             <Button
@@ -112,6 +121,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Sign Up"
+                android:textColor="@color/colorPrimary"
                 android:textStyle="bold" />
 
         </LinearLayout>

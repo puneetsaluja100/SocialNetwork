@@ -95,6 +95,7 @@
             android:layout_height="wrap_content"
             android:background="#fff"
             android:text="Like"
+            android:id="@+id/like_button"
             android:paddingLeft="25dp"
             android:paddingRight="30dp"
             android:gravity="center"

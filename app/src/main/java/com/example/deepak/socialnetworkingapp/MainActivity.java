@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private EditText mstatusUpload;
     private Button mpostUpload;
     public String type;
+    private Button like_button;
 
 
     private static final int SELECT_PICTURE = 100;
@@ -130,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //To create the recycler view
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_post);
         preparePostData();
+
 
     }
 
