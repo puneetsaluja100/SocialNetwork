@@ -11,6 +11,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:id="@+id/like_image"
+
         android:src="@drawable/ic_favorite_black"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -37,12 +38,33 @@
         android:layout_below="@+id/like_image"
        />
 
+    <!-- Comment fetch in progress -->
+    <ProgressBar
+        android:id="@+id/comment_progress"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/like_image"
+        android:visibility="gone" />
+    <TextView
+        android:id="@+id/comment_progress_text"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_below="@+id/comment_progress"
+        android:text="Fetching data please wait"
+        android:textSize="15sp"
+        />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/comment_recycler_view"
         android:layout_below="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/etcommenttext" />
+        android:layout_above="@+id/et_commenttext" />
 
     <View
         android:layout_width="match_parent"
@@ -59,12 +81,12 @@
         android:layout_toLeftOf="@+id/send_comment"
         android:paddingLeft="16dp"
         android:textSize="16sp"
-
         android:hint="Add a comment here"
         android:layout_alignTop="@+id/send_comment"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:background="#fff"/>
 
     <ImageView
         android:layout_width="40dp"
@@ -73,5 +95,6 @@
         android:src="@drawable/ic_action_send_now"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="#fff"/>
 </RelativeLayout>

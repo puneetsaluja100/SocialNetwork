@@ -256,7 +256,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mProgressText.setVisibility(show ? View.VISIBLE : View.GONE);
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
         }
-
     }
 
     @Override

@@ -1,12 +1,17 @@
 package com.example.deepak.socialnetworkingapp;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.annotation.TargetApi;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.provider.MediaStore;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -20,6 +25,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,6 +33,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -97,12 +104,44 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Bitmap bitmap;
     private String imageName;
 
+    private ProgressBar progressBar;
+    private TextView progressText;
+    //To show progress when the data is being fetched
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
+    public void showProgress(final boolean show) {
+        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
+        // for very easy animations. If available, use these APIs to fade-in
+        // the progress spinner.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+
+            progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
+            progressText.setVisibility(show ? View.VISIBLE : View.GONE);
+            progressBar.animate().setDuration(shortAnimTime).alpha(
+                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
+                }
+            });
+        } else {
+            // The ViewPropertyAnimator APIs are not available, so simply show
+            // and hide the relevant UI components.
+            progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
+            progressText.setVisibility(show ? View.VISIBLE : View.GONE);
+
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         email = getIntent().getExtras().getString("email");
 
+        LayoutInflater inflater = (LayoutInflater)getSystemService( Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.content_navigation, null);
+        progressBar = (ProgressBar) view.findViewById( R.id.post_progress );
+        progressText = (TextView) view.findViewById( R.id.post_progress_text );
 
         //navigation Drawer Activity to make the activity
         setContentView(R.layout.activity_navigation);
@@ -263,6 +302,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void preparePostData() {
         //Function to populate the post list
+        showProgress( true );
         MysqlCon mysqlCon = new MysqlCon();
         mysqlCon.execute(new String[] {"post"});
     }
@@ -429,6 +469,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             if(type.equals("post")) {
+                showProgress( false );
                 Log.e("Result", s);
                 FetchData = s;
                 String result = "{\"posts\":" + FetchData + "}";
@@ -449,6 +490,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         @Override
         protected void onCancelled() {
+            showProgress( false );
         }
     }
 
@@ -541,4 +583,6 @@ class MysqlConProfileShow extends AsyncTask<String,String,String>
     protected void onCancelled() {
     }
 }
+
 }
+

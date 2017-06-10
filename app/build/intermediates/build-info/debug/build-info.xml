@@ -6,93 +6,84 @@
     density="420dpi"
     format="10"
     plugin-version="3.0.0-alpha1"
-    timestamp="1497119762652"
+    timestamp="1497124269866"
     token="5049413409436875588"
     verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="255" />
+        duration="0" />
     <task
         name="instant-run-dex"
-        duration="84" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="36" />
+        duration="0" />
     <task
         name="verifier"
-        duration="2" />
+        duration="0" />
 
     <artifact
-        location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\reload-dex\debug\classes.dex"
-        type="RELOAD_DEX" />
+        location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+        type="RESOURCES" />
 
     <build
         build-mode="FULL"
-        timestamp="1497117543648"
+        timestamp="1497120384047"
         verifier="FULL_BUILD_REQUESTED" >
-        <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
-            type="SPLIT" />
         <artifact
             location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
         <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
-            type="SPLIT" />
+            location="E:\AndroidProjects\SocialNetworkingApp\app\build\outputs\apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
         <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
             location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\outputs\apk\debug\app-debug.apk"
-            type="SPLIT_MAIN" />
-    </build>
-    <build
-        build-mode="COLD"
-        timestamp="1497119189731"
-        verifier="BINARY_MANIFEST_FILE_CHANGE" >
-        <artifact
             location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
             location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
             location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
+        <artifact
+            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            type="SPLIT" />
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1497119491167"
+        ir-eligibility="CLASS_ADDED"
+        timestamp="1497123232447"
         verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        timestamp="1497124162949"
+        verifier="CLASS_ADDED" >
         <artifact
             location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
@@ -102,27 +93,11 @@
     </build>
     <build
         build-mode="HOT_WARM"
-        timestamp="1497119601459"
+        timestamp="1497124269866"
         verifier="COMPATIBLE" >
         <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\builds\debug\1497119601459\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1497119702315"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\builds\debug\1497119702315\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1497119762652"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\reload-dex\debug\classes.dex"
-            type="RELOAD_DEX" />
+            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+            type="RESOURCES" />
     </build>
 
 </instant-run>

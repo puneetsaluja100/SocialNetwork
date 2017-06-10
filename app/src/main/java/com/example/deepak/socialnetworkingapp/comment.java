@@ -1,7 +1,11 @@
 package com.example.deepak.socialnetworkingapp;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -12,6 +16,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
@@ -48,10 +54,43 @@ public class comment extends AppCompatActivity {
     private String FetchData;
     private ArrayList<comment_recycler> commentList = new ArrayList<>();
 
+    private ProgressBar progressBar;
+    private TextView progressText;
+    //To show progress when the data is being fetched
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
+    public void showProgress(final boolean show) {
+        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
+        // for very easy animations. If available, use these APIs to fade-in
+        // the progress spinner.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+
+            progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
+            progressText.setVisibility(show ? View.VISIBLE : View.GONE);
+            progressBar.animate().setDuration(shortAnimTime).alpha(
+                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
+                }
+            });
+        } else {
+            // The ViewPropertyAnimator APIs are not available, so simply show
+            // and hide the relevant UI components.
+            progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
+            progressText.setVisibility(show ? View.VISIBLE : View.GONE);
+
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
+
+        progressBar = (ProgressBar) findViewById( R.id.comment_progress );
+        progressText = (TextView) findViewById( R.id.comment_progress_text );
+
 
         Uid = getIntent().getExtras().getInt("Uid");
         postId = getIntent().getExtras().getInt("postId");
@@ -76,6 +115,7 @@ public class comment extends AppCompatActivity {
 //        comment_recycler acomment = new comment_recycler("Hello my name is puneet ","/upload/puneetsaluja@gmail.com/profile.png");
 //        Log.e("comment ",acomment.getComment());
 //        commentList.add(acomment);
+        showProgress( true );
         if(commentList.size()==0) {
             Log.e("Asynk Task","Asynk task is loaded to load comments");
             MysqlConCommentShow mysqlConCommentShow = new MysqlConCommentShow();
@@ -90,6 +130,7 @@ public class comment extends AppCompatActivity {
         }
     }
 
+    //Asynk task to add new comments to a post
     class MysqlCon extends AsyncTask<String,String,String>
     {
         @Override
@@ -223,7 +264,7 @@ public class comment extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-
+                showProgress( false );
                 Log.e("Result", s);
                 FetchData = s;
                 String result = "{\"comments\":" + FetchData + "}";
