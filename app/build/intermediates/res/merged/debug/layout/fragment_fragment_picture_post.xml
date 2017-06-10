@@ -9,6 +9,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
     >
 
 
@@ -37,7 +38,7 @@
             android:textStyle="bold"
             android:paddingTop="10dp"
             android:textSize="18sp"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:paddingLeft="10dp" />
     </LinearLayout>
 
@@ -61,7 +62,8 @@
         android:scaleType="fitCenter"
         android:layout_below="@+id/post_text"
         tools:src="@drawable/deepak_yadav"
-        android:padding="5dp"/>
+        android:padding="5dp"
+        />
     <LinearLayout
         android:id="@+id/post_details"
         android:layout_width="fill_parent"
@@ -74,13 +76,15 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            tools:text="1 person liked this"/>
+            tools:text="1 person liked this"
+            android:text="2 person liked this"/>
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             tools:text="1 person shared this"
+            android:text="3 person shared this"
             />
     </LinearLayout>
 
@@ -92,10 +96,10 @@
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:id="@+id/like_button"
             android:layout_height="wrap_content"
             android:background="#fff"
             android:text="Like"
-            android:id="@+id/like_button"
             android:paddingLeft="25dp"
             android:paddingRight="30dp"
             android:gravity="center"
@@ -103,6 +107,7 @@
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:id="@+id/comment_button"
             android:layout_height="wrap_content"
             android:background="#fff"
             android:paddingLeft="10dp"
@@ -112,6 +117,7 @@
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:id="@+id/share_button"
             android:layout_height="wrap_content"
             android:paddingLeft="25dp"
             android:paddingRight="25dp"

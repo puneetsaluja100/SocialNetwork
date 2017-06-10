@@ -19,15 +19,15 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_weight="3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
             android:id="@+id/imageUpload"
-            android:src="@drawable/ic_menu_manage"/>
+            android:src="@drawable/ic_menu_camera"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:id="@+id/statusUpload"
             android:hint="Whats's in Your Mind !"/>
     </LinearLayout>

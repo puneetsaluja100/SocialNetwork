@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -62,6 +63,8 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
+
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener{
 
     private List<Post> postList = new ArrayList<>();
@@ -75,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public String FetchData;
     public String Uname;
+    public int Uid;
     public String Uprofilepicture;
 
     //new uploading post
@@ -121,7 +125,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Username = (TextView)header.findViewById(R.id.user_name);
         getUserDetails();
 
+        getWindow().setSoftInputMode( WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         mstatusUpload = (EditText)findViewById(R.id.statusUpload);
+        mstatusUpload.clearFocus();
         mimageUpload = (ImageView)findViewById(R.id.imageUpload);
         mpostUpload = (Button)findViewById(R.id.postUpload);
 
@@ -276,7 +282,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 JSONObject reader = jsonArray.getJSONObject(i);
                 Log.i("Json",reader.toString());
                 String read = reader.toString();
-                post.setProfileId(Integer.parseInt(reader.getString("id")));
                 Log.i( "Json", String.valueOf( post.getProfileId() ) );
                 post.setPostImage(reader.getString("post_image"));
                 post.setPostText( reader.getString("post_text") );
@@ -284,6 +289,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 post.setPostTime(reader.getString( "post_time" ));
                 post.setProfileImage(reader.getString("profile"));
                 post.setProfileName(reader.getString( "name" ));
+                post.setPostId( Integer.parseInt( reader.getString( "post_id" ) ) );
                 postList.add(i,post);
                 Log.i( "Json post list", postList.get(i).getPostText() );
             }
@@ -390,7 +396,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             type = params[0];
             Log.i("Asynk Task","Asynk task is executing");
             String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+type+".php";
-
 //            loninterval = System.currentTimeMillis() + 2000;
 //            while(System.currentTimeMillis()>interval);g
 
@@ -435,7 +440,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 String result = "{\"posts\":" + FetchData + "}";
                 Log.i("Json", result);
                 postList = parseResult(result);
-                mAdapter = new PostAdapter(postList);
+                mAdapter = new PostAdapter(postList,Uid);
                 RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
                 recyclerView.setLayoutManager(mLayoutManager);
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -453,7 +458,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-//Asynk Task to load Profile image and name list from the internet
+//Asynk Task to load Profile image and name from the internet
 class MysqlConProfileShow extends AsyncTask<String,String,String>
 {
     @Override
@@ -462,8 +467,6 @@ class MysqlConProfileShow extends AsyncTask<String,String,String>
         Log.i("Asynk Task","Asynk task is executing");
         String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+type+".php";
 
-//            loninterval = System.currentTimeMillis() + 2000;
-//            while(System.currentTimeMillis()>interval);g
         if(type.equals("getprofiledetails")){
             String email = params[1];}
         try {
@@ -522,11 +525,11 @@ class MysqlConProfileShow extends AsyncTask<String,String,String>
                 JSONArray profilearray = reader.getJSONArray("profile details");
                 JSONObject profile = profilearray.getJSONObject(0);
                 Uname = profile.getString("name");
-                Log.e("Username",Uname);
                 Uprofilepicture = profile.getString("profile");
+                Uid =Integer.parseInt(profile.getString( "id" ));
+                Log.e( "User id", String.valueOf( Uid ) );
             } catch (JSONException e) {
                 e.printStackTrace();
-                Log.e("Json error ","Cant do th");
             }
             Useremail.setText(email);
             Username.setText(Uname);

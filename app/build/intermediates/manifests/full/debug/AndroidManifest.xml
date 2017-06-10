@@ -31,8 +31,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.example.deepak.socialnetworkingapp.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.example.deepak.socialnetworkingapp.LoginActivity"
             android:label="@string/title_activity_login" >
@@ -44,6 +43,7 @@
         </activity>
         <activity android:name="com.example.deepak.socialnetworkingapp.SignUp" />
         <activity android:name="com.example.deepak.socialnetworkingapp.upload" />
+        <activity android:name="com.example.deepak.socialnetworkingapp.comment" />
     </application>
 
 </manifest>

@@ -3,7 +3,7 @@
     build-mode="FULL"
     format="10"
     plugin-version="3.0.0-alpha1"
-    timestamp="1497058882565"
+    timestamp="1497060913529"
     verifier="NOT_RUN" >
 
     <task
@@ -25,7 +25,7 @@
 
     <build
         build-mode="FULL"
-        timestamp="1497058882565"
+        timestamp="1497060913529"
         verifier="NOT_RUN" >
         <artifact
             location="C:\Users\OMPRAKASH\AndroidStudioProjects\SocialNetworkingApp\app\build\outputs\apk\debug\app-debug.apk"
