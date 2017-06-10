@@ -96,7 +96,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private String KEY_NAME = "name";
     private Bitmap bitmap;
     private String imageName;
-    //
 
 
     @Override

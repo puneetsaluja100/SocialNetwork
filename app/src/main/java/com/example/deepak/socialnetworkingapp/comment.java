@@ -76,8 +76,18 @@ public class comment extends AppCompatActivity {
 //        comment_recycler acomment = new comment_recycler("Hello my name is puneet ","/upload/puneetsaluja@gmail.com/profile.png");
 //        Log.e("comment ",acomment.getComment());
 //        commentList.add(acomment);
-        MysqlConCommentShow mysqlConCommentShow = new MysqlConCommentShow();
-        mysqlConCommentShow.execute("getPostComments", String.valueOf(postId));
+        if(commentList.size()==0) {
+            Log.e("Asynk Task","Asynk task is loaded to load comments");
+            MysqlConCommentShow mysqlConCommentShow = new MysqlConCommentShow();
+            mysqlConCommentShow.execute( "getPostComments", String.valueOf( postId ) );
+        }
+        else{
+            mAdapter = new comment_adapter(commentList);
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+            recyclerView.setLayoutManager(mLayoutManager);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
+            recyclerView.setAdapter(mAdapter);
+        }
     }
 
     class MysqlCon extends AsyncTask<String,String,String>

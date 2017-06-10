@@ -3,6 +3,8 @@ package com.example.deepak.socialnetworkingapp;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.graphics.Movie;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -80,6 +83,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
             public void onClick(View v) {
                 postId = post.getPostId();
                 Log.e("The post id clicked is ", String.valueOf( postId ) );
+                LikeButton.setTextColor( Color.BLACK );
+                Toast.makeText( LikeButton.getContext(),"You liked this post",Toast.LENGTH_SHORT ).show();
+                setColorLikeButton();
             }
         });
 
@@ -104,6 +110,26 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
 //            }
 //        });
 
+    }
+
+    private void setColorLikeButton() {
+        ColorStateList mList = LikeButton.getTextColors();
+        int color = mList.getDefaultColor();
+        Log.e( "Color", String.valueOf( color ) );
+        Log.e( "Color", String.valueOf(Color.BLACK) );
+
+        switch(color)
+        {
+            case Color.RED:
+                LikeButton.setTextColor(Color.BLACK);
+                break;
+
+            case Color.BLACK:
+                Log.e( "Color","Inside when color is black" );
+                LikeButton.setBackgroundColor( Color.RED);
+                break;
+
+        }
     }
 
     @Override
