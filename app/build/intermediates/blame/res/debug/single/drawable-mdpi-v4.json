@@ -68,6 +68,10 @@
         "source": "E:\\SocialNetworkingApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_favorite_black.png"
     },
     {
+        "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_action_send_now.png",
+        "source": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_action_send_now.png"
+    },
+    {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png",
         "source": "C:\\Users\\Deepak Yadav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7558683830746d252b178312492ff831\\res\\drawable-mdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
     },

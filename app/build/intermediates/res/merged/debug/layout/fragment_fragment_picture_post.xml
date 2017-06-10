@@ -30,7 +30,7 @@
             android:textStyle="bold"
             android:paddingTop="10dp"
             android:textSize="18sp"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:paddingLeft="10dp" />
     </LinearLayout>
 
@@ -54,7 +54,8 @@
         android:scaleType="fitCenter"
         android:layout_below="@+id/post_text"
         tools:src="@drawable/deepak_yadav"
-        android:padding="5dp"/>
+        android:padding="5dp"
+        />
     <LinearLayout
         android:id="@+id/post_details"
         android:layout_width="fill_parent"
@@ -67,13 +68,15 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            tools:text="1 person liked this"/>
+            tools:text="1 person liked this"
+            android:text="2 person liked this"/>
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             tools:text="1 person shared this"
+            android:text="3 person shared this"
             />
     </LinearLayout>
 

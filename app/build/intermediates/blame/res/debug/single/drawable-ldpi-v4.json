@@ -12,6 +12,10 @@
         "source": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_comment_black.png"
     },
     {
+        "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_action_send_now.png",
+        "source": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_action_send_now.png"
+    },
+    {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_face.png",
         "source": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_face.png"
     },

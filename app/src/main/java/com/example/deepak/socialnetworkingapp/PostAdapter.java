@@ -27,6 +27,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
     public Button LikeButton;
     public Button CommentButton,ShareButton;
     public int postId;
+    public int Uid;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView profileName;
@@ -48,8 +49,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
     }
 
 
-    public PostAdapter(List<Post> PostList) {
+    public PostAdapter(List<Post> PostList,int uid) {
         this.PostList = PostList;
+        this.Uid = uid;
     }
 
     @Override
@@ -75,25 +77,24 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
             @Override
             public void onClick(View v) {
                 postId = post.getPostId();
+                Log.e("The post id clicked is ", String.valueOf( Uid ) );
+            }
+        });
+
+        CommentButton.setOnClickListener( new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
                 Log.e("The post id clicked is ", String.valueOf( postId ) );
             }
         });
 
-//        CommentButton.setOnClickListener( new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                postId = post.getPostId();
-//                Log.e("The post id clicked is ", String.valueOf( postId ) );
-//            }
-//        });
-//
-//        ShareButton.setOnClickListener( new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                postId = post.getPostId();
-//                Log.e("The post id clicked is ", String.valueOf( postId ) );
-//            }
-//        });
+        ShareButton.setOnClickListener( new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                postId = post.getPostId();
+                Log.e("The post id clicked is ", String.valueOf( postId ) );
+            }
+        });
 
     }
 
