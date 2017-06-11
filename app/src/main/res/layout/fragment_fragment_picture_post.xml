@@ -49,11 +49,10 @@
     <ImageView
         android:id="@+id/iv_post_image"
         android:layout_width="fill_parent"
-        android:layout_height="350dp"
+        android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
         android:layout_below="@+id/post_text"
-        tools:src="@drawable/deepak_yadav"
         android:padding="5dp"
         />
     <LinearLayout
@@ -95,7 +94,8 @@
             android:paddingLeft="25dp"
             android:paddingRight="30dp"
             android:gravity="center"
-            android:drawableLeft="@drawable/ic_favorite_black"/>
+            android:drawableLeft="@drawable/ic_favorite_black"
+            />
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"

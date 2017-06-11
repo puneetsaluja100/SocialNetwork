@@ -4,6 +4,10 @@
         "source": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_share.png"
     },
     {
+        "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_notifications_black.png",
+        "source": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_notifications_black.png"
+    },
+    {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_forward_black.png",
         "source": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_forward_black.png"
     },

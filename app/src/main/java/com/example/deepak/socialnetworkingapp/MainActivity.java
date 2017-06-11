@@ -383,7 +383,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             startActivity(new Intent(MainActivity.this,upload.class).putExtra("email",email));
 
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_notification) {
+            startActivity( new Intent( MainActivity.this,Notification_fragment.class ).putExtra( "Uid",Uid ) );
 
         } else if (id == R.id.nav_slideshow) {
 

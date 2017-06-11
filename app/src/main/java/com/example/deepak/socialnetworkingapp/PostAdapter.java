@@ -29,16 +29,16 @@ import java.util.List;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder>  {
     private List<Post> PostList;
-    public Button LikeButton;
-    public Button CommentButton,ShareButton;
-    public int postId;
-    public int Uid;
 
+    public int postId;   public Button CommentButton,ShareButton;
+    public int Uid;
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView profileName;
         public ImageView profilePicture;
         public TextView mPostText;
         public ImageView mPostImage;
+        public Button LikeButton;
+
 
 
         public MyViewHolder(View view) {
@@ -67,7 +67,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, final int position) {
+    public void onBindViewHolder( final MyViewHolder holder, final int position) {
         final Post post = PostList.get(position);
         holder.mPostText.setText(post.getPostText());
         Picasso.with(holder.mPostImage.getContext())
@@ -77,15 +77,15 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
         Picasso.with(holder.profilePicture.getContext())
                 .load("https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+post.getProfileImage())
                 .into(holder.profilePicture);
+        holder.LikeButton.setTextColor( Color.BLACK );
 
-        LikeButton.setOnClickListener( new View.OnClickListener(){
+        holder.LikeButton.setOnClickListener( new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 postId = post.getPostId();
                 Log.e("The post id clicked is ", String.valueOf( postId ) );
-                LikeButton.setTextColor( Color.BLACK );
-                Toast.makeText( LikeButton.getContext(),"You liked this post",Toast.LENGTH_SHORT ).show();
-                setColorLikeButton();
+                Toast.makeText( holder.LikeButton.getContext(),"You liked this post",Toast.LENGTH_SHORT ).show();
+                setColorLikeButton(holder.LikeButton);
             }
         });
 
@@ -112,7 +112,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
 
     }
 
-    private void setColorLikeButton() {
+    private void setColorLikeButton(Button LikeButton) {
         ColorStateList mList = LikeButton.getTextColors();
         int color = mList.getDefaultColor();
         Log.e( "Color", String.valueOf( color ) );
@@ -122,11 +122,13 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
         {
             case Color.RED:
                 LikeButton.setTextColor(Color.BLACK);
+                LikeButton.setDrawingCacheBackgroundColor(Color.BLACK);
                 break;
 
             case Color.BLACK:
                 Log.e( "Color","Inside when color is black" );
-                LikeButton.setBackgroundColor( Color.RED);
+                LikeButton.setTextColor( Color.RED);
+
                 break;
 
         }
@@ -137,4 +139,5 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
         return PostList.size();
     }
 }
+
 

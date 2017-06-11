@@ -32,6 +32,7 @@
         <activity android:name=".SignUp" />
         <activity android:name=".upload" />
         <activity android:name=".comment"></activity>
+        <activity android:name=".Notification_fragment"/>
     </application>
 
 </manifest>

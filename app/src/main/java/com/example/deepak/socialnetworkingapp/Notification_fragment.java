@@ -2,7 +2,9 @@ package com.example.deepak.socialnetworkingapp;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,9 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-//import com.example.deepak.socialnetworkingapp.dummy.DummyContent;
-//import com.example.deepak.socialnetworkingapp.dummy.DummyContent.DummyItem;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,7 +33,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 
 
-public class Notification_fragment extends Fragment {
+public class Notification_fragment extends AppCompatActivity {
 
     private int Uid;
     private RecyclerView recyclerView;
@@ -43,11 +42,19 @@ public class Notification_fragment extends Fragment {
     private String FetchData;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.notification_outer, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate( savedInstanceState );
+        setContentView(R.layout.notification_outer);
+        Uid = 2027;
+        Log.e( "User Id",String.valueOf( Uid )+"Yarr ye hai" );
+        recyclerView = (RecyclerView) findViewById( R.id.notification_recycler_view );
+        prepareNotificationData();
+        }
 
+    private void prepareNotificationData() {
+        MysqlConNotificationShow mysqlConNotificationShow = new MysqlConNotificationShow();
+        Log.e( "User Id",String.valueOf( Uid )+"Yarr ye hai" );
+        mysqlConNotificationShow.execute("getNotifications",String.valueOf( Uid ) );
     }
 
     class MysqlConNotificationShow extends AsyncTask<String,String,String>
@@ -113,7 +120,7 @@ public class Notification_fragment extends Fragment {
             Log.i("Json", result);
             notificationList = parseNotificationResult(result);
             mAdapter = new notification_adapter(notificationList);
-            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
             recyclerView.setLayoutManager(mLayoutManager);
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             recyclerView.setAdapter(mAdapter);
@@ -134,7 +141,7 @@ public class Notification_fragment extends Fragment {
 
         try {
             JSONObject jsonObject = new JSONObject(result);
-            JSONArray jsonArray = jsonObject.getJSONArray("notification");
+            JSONArray jsonArray = jsonObject.getJSONArray("notifications");
             for (int i = 0; i < jsonArray.length(); i++) {
                 notificationObject notification = new notificationObject();
                 JSONObject reader = jsonArray.getJSONObject(i);
