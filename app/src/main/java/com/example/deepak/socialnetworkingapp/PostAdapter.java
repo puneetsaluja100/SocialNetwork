@@ -7,6 +7,7 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Movie;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,10 +21,21 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.List;
 
 
@@ -86,6 +98,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
                 Log.e("The post id clicked is ", String.valueOf( postId ) );
                 Toast.makeText( holder.LikeButton.getContext(),"You liked this post",Toast.LENGTH_SHORT ).show();
                 setColorLikeButton(holder.LikeButton);
+                MysqlConLike mysqlConLike = new MysqlConLike();
+                mysqlConLike.execute( "like",String.valueOf(Uid),String.valueOf(postId) );
             }
         });
 
@@ -97,11 +111,12 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
                 Intent intent = new Intent(CommentButton.getContext(),comment.class);
                 intent.putExtra("Uid",Uid);
                 intent.putExtra("postId",post.getPostId());
+                intent.putExtra( "Pid",post.getProfileId() );
                 ((Activity)CommentButton.getContext()).startActivity(intent);
 
             }
         });
-//
+
 //        ShareButton.setOnClickListener( new View.OnClickListener(){
 //            @Override
 //            public void onClick(View v) {
@@ -137,6 +152,81 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
     @Override
     public int getItemCount() {
         return PostList.size();
+    }
+
+    //Asynk task to add new Likes to a post
+    class MysqlConLike extends AsyncTask<String,String,String>
+    {
+        @Override
+        protected String doInBackground(String... params) {
+
+            String type = params[0];
+            String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+type+".php";
+
+            String Uid = params[1];
+            String postId = params[2];
+
+            try {
+                URL url = new URL(con_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+
+
+                OutputStream outputStream  = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
+
+                String post_data= URLEncoder.encode("postId","UTF-8")+"="+ URLEncoder.encode(postId,"UTF-8")+"&"
+                        + URLEncoder.encode("Uid","UTF-8")+"="+ URLEncoder.encode(Uid,"UTF-8");
+
+
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+
+                InputStream inputStream  = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader  = new BufferedReader(new InputStreamReader(inputStream,"ISO-8859-1"));
+                String result="";
+                String line;
+
+                while((line=bufferedReader.readLine())!=null){
+                    result+=line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return result;
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            } catch (ProtocolException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            Log.e("Result",s+"Php hai");
+
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onCancelled() {
+
+        }
     }
 }
 

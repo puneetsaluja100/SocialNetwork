@@ -50,6 +50,7 @@ public class comment extends AppCompatActivity {
     private ImageView send_comment;
     private EditText et_comment_text;
     public int Uid;
+    public int Pid;
     public int postId;
     private String FetchData;
     private ArrayList<comment_recycler> commentList = new ArrayList<>();
@@ -93,6 +94,7 @@ public class comment extends AppCompatActivity {
 
 
         Uid = getIntent().getExtras().getInt("Uid");
+        Pid = getIntent().getExtras().getInt("Pid");
         postId = getIntent().getExtras().getInt("postId");
 
         recyclerView = (RecyclerView) findViewById(R.id.comment_recycler_view);
@@ -107,7 +109,7 @@ public class comment extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Commenting Please wait",LENGTH_SHORT).show();
                 et_comment_text.clearFocus();
                 MysqlCon mysqlCon = new MysqlCon();
-                mysqlCon.execute("comment",et_comment_text.getText().toString(),String.valueOf(postId),String.valueOf(Uid));
+                mysqlCon.execute("comment",et_comment_text.getText().toString(),String.valueOf(postId),String.valueOf(Uid),String.valueOf(Pid));
             }});
     }
 
@@ -142,6 +144,7 @@ public class comment extends AppCompatActivity {
             String commenttext  = params[1];
             String postId = params[2];
             String Uid = params[3];
+            String Pid = params[4];
 
             try {
                 URL url = new URL(con_url);
@@ -156,6 +159,7 @@ public class comment extends AppCompatActivity {
 
                 String post_data= URLEncoder.encode("comment","UTF-8")+"="+ URLEncoder.encode(commenttext,"UTF-8")+"&"
                         +URLEncoder.encode("postId","UTF-8")+"="+ URLEncoder.encode(postId,"UTF-8")+"&"
+                        +URLEncoder.encode("Pid","UTF-8")+"="+ URLEncoder.encode(Pid,"UTF-8")+"&"
                         + URLEncoder.encode("Uid","UTF-8")+"="+ URLEncoder.encode(Uid,"UTF-8");
 
 
@@ -192,7 +196,7 @@ public class comment extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            Log.e("Result",s);
+            Log.e("Result",s+"PHp hai");
             prepareCommentData();
 
         }
