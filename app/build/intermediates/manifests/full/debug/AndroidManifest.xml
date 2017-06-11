@@ -30,7 +30,7 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.deepak.socialnetworkingapp.MainActivity"
+            android:name="com.example.deepak.socialnetworkingapp.MainActivity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.example.deepak.socialnetworkingapp.LoginActivity"
@@ -43,9 +43,9 @@
         </activity>
         <activity android:name="com.example.deepak.socialnetworkingapp.SignUp" />
         <activity android:name="com.example.deepak.socialnetworkingapp.upload" />
-        <activity android:name="com.example.deepak.socialnetworkingapp.comment" />
-        <activity android:name="com.example.deepak.socialnetworkingapp.Notification_fragment" />
-        <activity android:name="com.example.deepak.socialnetworkingapp.getfriends" />
+        <activity android:name="com.example.deepak.socialnetworkingapp.CommentActivity.comment" />
+        <activity android:name="com.example.deepak.socialnetworkingapp.NotificationActivity.Notification_fragment" />
+        <activity android:name="com.example.deepak.socialnetworkingapp.GetfriendsActivity.getfriends" />
     </application>
 
 </manifest>

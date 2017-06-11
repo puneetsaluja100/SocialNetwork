@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".MainActivity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".LoginActivity"
@@ -31,9 +31,9 @@
         </activity>
         <activity android:name=".SignUp" />
         <activity android:name=".upload" />
-        <activity android:name=".comment"></activity>
-        <activity android:name=".Notification_fragment"/>
-        <activity android:name=".getfriends"/>
+        <activity android:name=".CommentActivity.comment"></activity>
+        <activity android:name=".NotificationActivity.Notification_fragment"/>
+        <activity android:name=".GetfriendsActivity.getfriends"/>
     </application>
 
 </manifest>

@@ -31,6 +31,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.deepak.socialnetworkingapp.MainActivity.MainActivity;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -376,18 +378,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            Log.e("Result",s);
+            Log.e("Result",s+"result");
             showProgress(false);
-            if(s.contains("Login Successful")){
+//            if(s.contains("Login Successful")){
                 Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                 intent.putExtra("email",mEmailView.getText().toString());
                 startActivity(intent);
                 finish();
-            } else {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-//                mPasswordView.requestFocus();
-                mEmailView.setError("Email is incorrect");
-            }
+//            } else {
+//                mPasswordView.setError(getString(R.string.error_incorrect_password));
+////                mPasswordView.requestFocus();
+//                mEmailView.setError("Email is incorrect");
+//            }
 
         }
 
