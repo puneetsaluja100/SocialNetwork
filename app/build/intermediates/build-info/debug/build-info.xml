@@ -2,30 +2,34 @@
 <instant-run
     abi="arm64-v8a,armeabi-v7a,armeabi"
     api-level="API 23"
-    build-mode="HOT_WARM"
+    build-mode="COLD"
     density="420dpi"
     format="10"
+    ir-eligibility="METHOD_DELETED"
     plugin-version="3.0.0-alpha1"
-    timestamp="1497206537790"
+    timestamp="1497207639447"
     token="5049413409436875588"
-    verifier="COMPATIBLE" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="371" />
+        duration="243" />
     <task
         name="instant-run-dex"
-        duration="30" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="101" />
+        duration="264" />
     <task
         name="verifier"
-        duration="17" />
+        duration="56" />
 
     <artifact
-        location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\reload-dex\debug\classes.dex"
-        type="RELOAD_DEX" />
+        location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+        type="SPLIT" />
+    <artifact
+        location="E:\AndroidProjects\SocialNetworkingApp\app\build\outputs\apk\debug\app-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
@@ -76,33 +80,32 @@
             location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
-            type="SPLIT" />
-        <artifact
             location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1497207556501"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
             location="E:\AndroidProjects\SocialNetworkingApp\app\build\outputs\apk\debug\app-debug.apk"
             type="SPLIT_MAIN" />
     </build>
     <build
-        build-mode="HOT_WARM"
-        timestamp="1497206444621"
-        verifier="COMPATIBLE" >
+        build-mode="COLD"
+        ir-eligibility="METHOD_DELETED"
+        timestamp="1497207639447"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\builds\debug\1497206444621\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1497206537790"
-        verifier="COMPATIBLE" >
+            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            type="SPLIT" />
         <artifact
-            location="E:\AndroidProjects\SocialNetworkingApp\app\build\intermediates\reload-dex\debug\classes.dex"
-            type="RELOAD_DEX" />
+            location="E:\AndroidProjects\SocialNetworkingApp\app\build\outputs\apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
     </build>
 
 </instant-run>

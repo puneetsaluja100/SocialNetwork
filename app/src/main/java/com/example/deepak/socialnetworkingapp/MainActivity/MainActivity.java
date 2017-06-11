@@ -432,6 +432,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        }
 
 
+    //function to refresh recycler view on like button clicked
+    public void refreshPostRecyclerView(List<Post> postList){
+        mAdapter = new PostAdapter(postList,Uid);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
+
+    }
     //Asynk Task to load post list from the internet
     class MysqlCon extends AsyncTask<String,String,String>
     {

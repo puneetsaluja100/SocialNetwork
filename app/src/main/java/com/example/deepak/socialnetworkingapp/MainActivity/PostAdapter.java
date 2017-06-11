@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -50,8 +52,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
         public Button LikeButton;
         public TextView likeCount;
         public TextView commentCount;
-
-
 
         public MyViewHolder(View view) {
             super(view);
@@ -111,6 +111,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
                 Log.e("The post id clicked is ", String.valueOf( postId ) );
                 Toast.makeText( holder.LikeButton.getContext(),"You liked this post",Toast.LENGTH_SHORT ).show();
                 setColorLikeButton(holder.LikeButton);
+                refreshPostRecyclerView(PostList);
                 MysqlConLike mysqlConLike = new MysqlConLike();
                 mysqlConLike.execute( "like",String.valueOf(Uid),String.valueOf(postId) );
             }
@@ -168,6 +169,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
                 LikeButton.setCompoundDrawables( un_img, null, null, null );
                 break;
 
+
             case Color.BLACK:
                 Log.e( "Color","Inside when color is black" );
                 LikeButton.setTextColor( Color.RED);
@@ -182,6 +184,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
     @Override
     public int getItemCount() {
         return PostList.size();
+    }
+
+    //function to refresh recycler view on like button clicked
+    public void refreshPostRecyclerView(List<Post> postList){
     }
 
     //Asynk task to add new Likes to a post
