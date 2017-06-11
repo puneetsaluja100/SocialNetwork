@@ -13,9 +13,9 @@
             android:icon="@drawable/ic_notifications_black"
             android:title="Notification" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_friends"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:title="Get Friends" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"

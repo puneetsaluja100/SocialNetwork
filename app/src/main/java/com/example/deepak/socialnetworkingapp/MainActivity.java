@@ -386,7 +386,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_notification) {
             startActivity( new Intent( MainActivity.this,Notification_fragment.class ).putExtra( "Uid",Uid ) );
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_friends) {
+            startActivity( new Intent( MainActivity.this,getfriends.class ).putExtra( "Uid",Uid ) );
 
         } else if (id == R.id.nav_manage) {
 

@@ -45,6 +45,7 @@
         <activity android:name="com.example.deepak.socialnetworkingapp.upload" />
         <activity android:name="com.example.deepak.socialnetworkingapp.comment" />
         <activity android:name="com.example.deepak.socialnetworkingapp.Notification_fragment" />
+        <activity android:name="com.example.deepak.socialnetworkingapp.getfriends" />
     </application>
 
 </manifest>
