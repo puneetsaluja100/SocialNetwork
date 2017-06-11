@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -25,6 +26,7 @@ import com.squareup.picasso.Picasso;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -37,6 +39,8 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.List;
+
+import static android.content.ContentValues.TAG;
 
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder>  {
@@ -129,13 +133,22 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
             }
         });
 
-//        ShareButton.setOnClickListener( new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                postId = post.getPostId();
-//                Log.e("The post id clicked is ", String.valueOf( postId ) );
-//            }
-//        });
+        ShareButton.setOnClickListener( new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                String url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+post.getPostImage();
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                sharingIntent.setType("image/*");
+                String shareBody = url;
+                String shareSub = post.getPostImage().toString();
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                ShareButton.getContext().startActivity(Intent.createChooser(sharingIntent, "Share using"));
+
+
+            }
+        });
 
     }
 
