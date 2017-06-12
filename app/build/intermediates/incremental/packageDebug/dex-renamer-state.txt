@@ -1,7 +1,4 @@
-#Mon Jun 12 15:46:04 PDT 2017
-base.0=E\:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\54
-renamed.1=classes2.dex
+#Mon Jun 12 17:40:03 IST 2017
+base.0=C\:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\57
 renamed.0=classes.dex
-file.1=E\:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\55\\classes.dex
-base.1=E\:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\55
-file.0=E\:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\54\\classes.dex
+file.0=C\:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\57\\classes.dex

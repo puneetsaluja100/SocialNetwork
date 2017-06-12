@@ -1,5 +1,6 @@
 package com.example.deepak.socialnetworkingapp.MainActivity;
 
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 
 import com.example.deepak.socialnetworkingapp.CommentActivity.comment;
 import com.example.deepak.socialnetworkingapp.R;
+import com.github.chrisbanes.photoview.PhotoViewAttacher;
 import com.squareup.picasso.Picasso;
 
 import java.io.BufferedReader;
@@ -40,8 +42,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.List;
 
-import static android.content.ContentValues.TAG;
-
+import it.sephiroth.android.library.imagezoom.ImageViewTouch;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder>  {
     private List<Post> PostList;
@@ -56,7 +57,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
         public Button LikeButton;
         public TextView likeCount;
         public TextView commentCount;
-
+        public ImageViewTouch myImage;
+        public  PhotoViewAttacher yourAttacher;
         public MyViewHolder(View view) {
             super(view);
             mPostText = (TextView)view.findViewById( R.id.post_text);
@@ -68,6 +70,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
             ShareButton = (Button) view.findViewById( R.id.share_button );
             likeCount = (TextView) view.findViewById( R.id.like_count );
             commentCount = (TextView) view.findViewById( R.id.comment_count );
+            myImage = (ImageViewTouch) view.findViewById(R.id.iv_post_image);
+            yourAttacher = new PhotoViewAttacher(myImage);
         }
     }
 
@@ -91,6 +95,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
         Picasso.with(holder.mPostImage.getContext())
                 .load("https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+post.getPostImage())
                 .into(holder.mPostImage);
+
+
+
 //TODO add a double tap listener using gesture listener in android
 //        holder.mPostImage.setOnClickListener(  );
         holder.profileName.setText(post.getProfileName());
