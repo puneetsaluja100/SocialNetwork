@@ -5,12 +5,14 @@
     android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:textSize="20sp"
-        android:text="Comments"
-        android:background="@color/colorPrimary"
+        android:text="Notifications"
+        android:background="#1a237e"
         android:layout_gravity="center"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:textColor="#fff"/>
+
 
     <!-- Comment fetch in progress -->
     <ProgressBar

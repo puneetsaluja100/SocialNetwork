@@ -42,7 +42,8 @@ public class Notification_fragment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.notification_outer);
-        Uid = 2027;
+        Uid = getIntent().getExtras().getInt("Uid");
+        //Uid = 2027;
         Log.e( "User Id",String.valueOf( Uid )+"Yarr ye hai" );
         recyclerView = (RecyclerView) findViewById( R.id.notification_recycler_view );
         prepareNotificationData();
