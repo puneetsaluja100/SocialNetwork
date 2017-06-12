@@ -1,11 +1,11 @@
 [
     {
-        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_share.xml",
-        "source": "E:\\SocialNetworkingApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_share.xml"
-    },
-    {
         "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_action_send_now.xml",
         "source": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_action_send_now.xml"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_share.xml",
+        "source": "E:\\SocialNetworkingApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_share.xml"
     },
     {
         "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_liked_black.xml",
