@@ -79,7 +79,7 @@ public class upload extends AppCompatActivity implements View.OnClickListener{
                 if (null != selectedImageUri) {
                     // Get the path from the Uri
                     String path = getPathFromURI(selectedImageUri);
-                    Log.i(TAG, "Image Path : " + path);
+                   // Log.i(TAG, "Image Path : " + path);
                     // Set the image in ImageView
                     imgView.setImageURI(selectedImageUri);
                 }
@@ -160,6 +160,9 @@ public class upload extends AppCompatActivity implements View.OnClickListener{
 
         //Adding request to the queue
         requestQueue.add(stringRequest);
+        requestQueue.getCache().invalidate( UPLOAD_URL,true );
+        stringRequest.setShouldCache( false );
+
     }
 
     @Override

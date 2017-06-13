@@ -199,10 +199,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (null != selectedImageUri) {
                     // Get the path from the Uri
                     String path = getPathFromURI(selectedImageUri);
-                    File f = new File(path);
-
-                    imageName = f.getName();
-                    Log.i(TAG, "Image Path : " + path);
+//                    File f = new File(path);
+//
+//                    imageName = f.getName();
+//                    Log.i(TAG, "Image Path : " + path);
                     // Set the image in ImageView
                     mimageUpload.setImageURI(selectedImageUri);
                 }
@@ -273,7 +273,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 params.put(KEY_IMAGE, image);
                 params.put("email",email);
                 params.put("text",text);
-                params.put("name", imageName);
+                //params.put("name", imageName);
 
                 //returning parameters
                 return params;
@@ -285,6 +285,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //Adding request to the queue
         requestQueue.add(stringRequest);
+        requestQueue.getCache().invalidate( UPLOAD_URL,true );
+        stringRequest.setShouldCache( false );
     }
 
     @Override
