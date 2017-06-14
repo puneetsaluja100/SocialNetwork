@@ -7,7 +7,27 @@ package com.example.deepak.socialnetworkingapp.GetfriendsActivity;
 
 public class getfriends_recycler {
 
-    String profileimage,profilename;
+    String profileimage;
+    String profilename;
+
+    public String getGroup_id() {
+        return group_id;
+    }
+
+    public void setGroup_id(String group_id) {
+        this.group_id = group_id;
+    }
+
+    public int getUid() {
+        return Uid;
+    }
+
+    public void setUid(int uid) {
+        Uid = uid;
+    }
+
+    String group_id;
+    int Uid;
 
     public getfriends_recycler(){}
 

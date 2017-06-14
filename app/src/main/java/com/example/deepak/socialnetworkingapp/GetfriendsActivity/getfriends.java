@@ -3,6 +3,7 @@ package com.example.deepak.socialnetworkingapp.GetfriendsActivity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -12,10 +13,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.deepak.socialnetworkingapp.R;
 
@@ -38,16 +41,17 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
+import static android.widget.Toast.LENGTH_SHORT;
+
 public class getfriends extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private getfriends_adapter mAdapter;
+    private static RecyclerView recyclerView;
+    private static getfriends_adapter mAdapter;
     private Button set_friends;
     private EditText et_getfriends_text;
-    public int Uid;
-    public int Pid;
-    public int postId;
-    private String FetchData;
-    private ArrayList<getfriends_recycler> getfriendsList = new ArrayList<>();
+    public static int Uid;
+    public static String group_id;
+    private static String FetchData;
+    private static ArrayList<getfriends_recycler> getfriendsList = new ArrayList<>();
 
     private ProgressBar progressBar;
     private TextView progressText;
@@ -88,27 +92,21 @@ public class getfriends extends AppCompatActivity {
 
 
         Uid = getIntent().getExtras().getInt("Uid");
+        group_id = getIntent().getExtras().getString("group_id");
 
         recyclerView = (RecyclerView) findViewById(R.id.getfriends_recyclerview);
         preparegetfriendsData();
         set_friends = (Button) findViewById(R.id.set_friends);
 
-//        set_friends.setOnClickListener( new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                getWindow().setSoftInputMode( WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-//                Toast.makeText(getApplicationContext(),"getfriendsing Please wait",LENGTH_SHORT).show();
-//                et_getfriends_text.clearFocus();
-//                MysqlCon mysqlCon = new MysqlCon();
-//                mysqlCon.execute("getfriends",et_getfriends_text.getText().toString(),String.valueOf(postId),String.valueOf(Uid),String.valueOf(Pid));
-//            }});
+
     }
 
-    private void preparegetfriendsData() {
+    public void preparegetfriendsData() {
 //        showProgress( true );
-            Log.e("Asynk Task","Asynk task is loaded to load getfriendss");
+            Log.e("Asynk Task","Asynk task is loaded to load getfriends");
             MysqlCongetfriendsShow mysqlCongetfriendsShow = new MysqlCongetfriendsShow();
-            mysqlCongetfriendsShow.execute( "getfriends", String.valueOf( Uid ) );
+            mysqlCongetfriendsShow.execute( "getfriends", String.valueOf( Uid ),String.valueOf(group_id));
+
     }
 
     //Asynk task to fetch the friends to a post
@@ -119,8 +117,8 @@ public class getfriends extends AppCompatActivity {
 
             String type = params[0];
             String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+type+".php";
-
             String Uid = params[1];
+            String group_id = params[2];
 
             try {
                 URL url = new URL(con_url);
@@ -133,7 +131,8 @@ public class getfriends extends AppCompatActivity {
                 OutputStream outputStream  = httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
 
-                String post_data= URLEncoder.encode("Uid","UTF-8")+"="+ URLEncoder.encode(Uid,"UTF-8");
+                String post_data= URLEncoder.encode("Uid","UTF-8")+"="+ URLEncoder.encode(Uid,"UTF-8")+"&"+
+                                    URLEncoder.encode("group_id","UTF-8")+"="+ URLEncoder.encode(group_id,"UTF-8");
 
 
                 bufferedWriter.write(post_data);
@@ -179,8 +178,8 @@ public class getfriends extends AppCompatActivity {
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
             recyclerView.setLayoutManager(mLayoutManager);
             recyclerView.setItemAnimator(new DefaultItemAnimator());
+            mAdapter.notifyDataSetChanged();
             recyclerView.setAdapter(mAdapter);
-
         }
 
         @Override
@@ -208,7 +207,8 @@ public class getfriends extends AppCompatActivity {
                 Log.i("Json",reader.toString());
                 getfriends.setProfilename(reader.getString("name"));
                 getfriends.setProfileimage(reader.getString("profile"));
-
+                getfriends.setGroup_id(group_id);
+                getfriends.setUid(reader.getInt("profile_id"));
                 getfriendsList.add(i,getfriends);
             }
 
@@ -219,5 +219,9 @@ public class getfriends extends AppCompatActivity {
 
         return getfriendsList;
     }
+
+
+
+
 }
 
