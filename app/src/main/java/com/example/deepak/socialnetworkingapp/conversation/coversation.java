@@ -41,6 +41,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
+import static android.os.SystemClock.sleep;
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class coversation extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String>{
@@ -88,6 +89,26 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
 //        while (true){
             prepareconversationData(1);
 //        }
+//        Thread thread = new Thread() {
+//            @Override
+//            public void run() {
+//                try {
+//                    while(true) {
+//                        sleep(5000);
+//                        prepareconversationData(1);
+//                        Log.e("REfreashed" ,"the messages refreshoghalsk");
+//                    }
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        };
+//
+//        thread.start();
+
+            UpdateMessage updateMessage = new UpdateMessage();
+            updateMessage.execute();
+
 
     }
 
@@ -103,8 +124,7 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
         else {
             loaderManager.initLoader( LOADER_ID, postQueryBundle, this );
         }
-        long interval = System.currentTimeMillis() + 2000;
-        while(System.currentTimeMillis()>interval);
+
     }
 
     @Override
@@ -331,6 +351,24 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
         }
     }
 
+    class UpdateMessage extends AsyncTask<String,String,String> {
+        @Override
+        protected String doInBackground(String... params) {
+            long time = System.currentTimeMillis()+1000;
+            while(time>System.currentTimeMillis());
+            UpdateMessage updateMessage = new UpdateMessage();
+            updateMessage.execute();
+            Log.e("REfreashed", "the messages refreshoghalsk");
+            return "items refreshed";
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute( s );
+            Log.e("REfreashed", "the messages refreshoghalsk");
+            prepareconversationData( 1 );
+        }
+    }
 
     private ArrayList<conversation_recycler> parseconversationResult(String result) {
         ArrayList<conversation_recycler> conversationList = new ArrayList<>();
