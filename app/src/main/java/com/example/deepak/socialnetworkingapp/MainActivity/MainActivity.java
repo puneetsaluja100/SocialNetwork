@@ -194,13 +194,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mstatusUpload.clearFocus();
         mimageUpload = (ImageView)findViewById(R.id.imageUpload);
         mpostUpload = (Button)findViewById(R.id.postUpload);
-
         mimageUpload.setOnClickListener(this);
         mpostUpload.setOnClickListener(this);
 
         //To create the recycler view
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_post);
-
         preparePostData();
 
     }
@@ -329,10 +327,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    private void getUserDetails() {
-        MysqlConProfileShow mysqlConProfileShow = new MysqlConProfileShow();
-        mysqlConProfileShow.execute("getprofiledetails",email);
-    }
 
     private void preparePostData() {
         //Function to populate the post list
@@ -481,7 +475,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public String loadInBackground() {
                 type = bundle.getString( "type" );
                 String group_id = bundle.getString("group_id" );
-                group_id = "opdhakad";
                 Log.i("LOADER EXECUTING","LOADER is executing");
                 String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+type+".php";
 
@@ -527,12 +520,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
                 return null;
             }
-
-//            @Override
-//            public void deliverResult(String data) {
-//                jsonArray = data;
-//                super.deliverResult( data );
-//            }
         };
     }
 
@@ -555,171 +542,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onLoaderReset(Loader<String> loader) {
 
     }
-
-
-    //Asynk Task to load post list from the internet
-    class MysqlCon extends AsyncTask<String,String,String>
-    {
-        @Override
-        protected String doInBackground(String... params) {
-            type = params[0];
-            Log.i("Asynk Task","Asynk task is executing");
-            String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+type+".php";
-//            loninterval = System.currentTimeMillis() + 2000;
-//            while(System.currentTimeMillis()>interval);
-
-            try {
-                URL url = new URL(con_url);
-                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-                httpURLConnection.setRequestMethod("POST");
-                httpURLConnection.setDoOutput(true);
-                httpURLConnection.setDoInput(true);
-
-                InputStream inputStream  = httpURLConnection.getInputStream();
-                BufferedReader bufferedReader  = new BufferedReader(new InputStreamReader(inputStream,"ISO-8859-1"));
-                String result="";
-                String line;
-
-                while((line=bufferedReader.readLine())!=null){
-                    result+=line;
-                }
-                bufferedReader.close();
-                inputStream.close();
-                httpURLConnection.disconnect();
-                return result;
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            } catch (ProtocolException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            if(type.equals("post")) {
-                showProgress( false );
-                Log.e("Result", s);
-                FetchData = s;
-                String result = "{\"posts\":" + FetchData + "}";
-                Log.i("Json", result);
-                postList = parseResult(result);
-                mAdapter = new PostAdapter(postList,Uid);
-                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-                recyclerView.setLayoutManager(mLayoutManager);
-                recyclerView.setItemAnimator(new DefaultItemAnimator());
-                recyclerView.setAdapter(mAdapter);
-            }
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected void onCancelled() {
-            showProgress( false );
-        }
-    }
-
-//Asynk Task to load Profile image and name from the internet
-class MysqlConProfileShow extends AsyncTask<String,String,String>
-{
-    @Override
-    protected String doInBackground(String... params) {
-        type = params[0];
-        Log.i("Asynk Task","Asynk task is executing");
-        String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+type+".php";
-
-        if(type.equals("getprofiledetails")){
-            String email = params[1];}
-        try {
-            URL url = new URL(con_url);
-            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-            httpURLConnection.setRequestMethod("POST");
-            httpURLConnection.setDoOutput(true);
-            httpURLConnection.setDoInput(true);
-
-            if(type.equals("getprofiledetails"))
-            { OutputStream outputStream = httpURLConnection.getOutputStream();
-                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
-
-                String post_data = URLEncoder.encode("email", "UTF-8") + "=" + URLEncoder.encode(email, "UTF-8");
-
-
-                bufferedWriter.write(post_data);
-                bufferedWriter.flush();
-                bufferedWriter.close();
-                outputStream.close();
-            }
-            InputStream inputStream  = httpURLConnection.getInputStream();
-            BufferedReader bufferedReader  = new BufferedReader(new InputStreamReader(inputStream,"ISO-8859-1"));
-            String result="";
-            String line;
-
-            while((line=bufferedReader.readLine())!=null){
-                result+=line;
-            }
-            bufferedReader.close();
-            inputStream.close();
-            httpURLConnection.disconnect();
-            return result;
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (ProtocolException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    protected void onPostExecute(String s) {
-        super.onPostExecute(s);
-            Log.e("Result", s);
-            FetchData = s;
-            String result = "{\"profile details\":" + FetchData + "}";
-            Log.e("Json Result", result);
-            try {
-                JSONObject reader = new JSONObject(result);
-                JSONArray profilearray = reader.getJSONArray("profile details");
-                JSONObject profile = profilearray.getJSONObject(0);
-                Uname = profile.getString("name");
-                Uprofilepicture = profile.getString("profile");
-                Uid =Integer.parseInt(profile.getString( "id" ));
-                group_id = profile.getString("group_id");
-                Log.e( "group id", String.valueOf( group_id ) );
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            Useremail.setText(email);
-            Username.setText(Uname);
-            Picasso.with(UserImage.getContext())
-                    .load("https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+email+"profile.png")
-                    .resize(50, 50).centerCrop()
-                    .into(UserImage);
-    }
-
-    @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-    }
-
-    @Override
-    protected void onCancelled() {
-    }
-}
-
 }
 

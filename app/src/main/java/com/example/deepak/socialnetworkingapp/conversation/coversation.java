@@ -183,7 +183,8 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
         String result = "{\"conversations\":" + FetchData + "}";
         Log.i("Json", result);
         conversationList = parseconversationResult(result);
-        if(!conversationList.equals( conversationListcache )){
+        if(conversationListcache.containsAll(conversationList)){
+            Log.e( "Reloading","they both are not equal" );
         conversationListcache = conversationList;
         mAdapter = new conversation_adapter(conversationList);
         Context context = getBaseContext();
