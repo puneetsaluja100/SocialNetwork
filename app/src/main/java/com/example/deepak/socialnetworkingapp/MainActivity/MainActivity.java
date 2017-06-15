@@ -2,6 +2,7 @@ package com.example.deepak.socialnetworkingapp.MainActivity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -12,7 +13,12 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Parcelable;
+import android.os.PersistableBundle;
 import android.provider.MediaStore;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.AsyncTaskLoader;
+import android.support.v4.content.Loader;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.design.widget.NavigationView;
@@ -58,7 +64,6 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -77,15 +82,16 @@ import java.util.Map;
 
 
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener,LoaderManager.LoaderCallbacks<String> {
 
-    private List<Post> postList = new ArrayList<>();
+    private ArrayList<Post> postList = new ArrayList<>();
     private RecyclerView recyclerView;
     private PostAdapter mAdapter;
     private String email;
     private TextView Useremail;
     private TextView Username;
     private ImageView UserImage;
+    private final int LOADER_ID = 50;
 
 
     public String FetchData;
@@ -108,6 +114,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private String KEY_NAME = "name";
     private Bitmap bitmap;
     private String imageName;
+    private static final String LIFECYCLE = "callbacks";
+    static ArrayList<Post> postListtosave;
 
     private ProgressBar progressBar;
     private TextView progressText;
@@ -178,8 +186,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //To create the recycler view
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_post);
-        preparePostData();
 
+        preparePostData();
+//        if(savedInstanceState!= null){
+//            if(savedInstanceState.containsKey( LIFECYCLE )){
+//                postList = savedInstanceState.getParcelableArrayList( LIFECYCLE );
+//                Log.e( "SAving instance","It is working" );
+//                mAdapter = new PostAdapter(postList,Uid);
+//                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+//                recyclerView.setLayoutManager(mLayoutManager);
+//                recyclerView.setItemAnimator(new DefaultItemAnimator());
+//                recyclerView.setAdapter(mAdapter);
+//            }
+//            else{
+//                Log.e( "SAving instance","Going in the obivious" );
+//                preparePostData();
+//            }
+//        }
+
+    }
+
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState( outState, outPersistentState );
+        Log.e( "SAving instance","Inside on saved instance statehiucfyfuyfufuy");
+        postListtosave = postList;
+        outState.putParcelableArrayList(LIFECYCLE, (ArrayList<? extends Parcelable>) postListtosave );
     }
 
     /* Choose an image from Gallery */
@@ -189,7 +222,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_PICTURE);
     }
-
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
@@ -301,7 +333,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-
     private void getUserDetails() {
         MysqlConProfileShow mysqlConProfileShow = new MysqlConProfileShow();
         mysqlConProfileShow.execute("getprofiledetails",email);
@@ -309,12 +340,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void preparePostData() {
         //Function to populate the post list
-        showProgress( true );
-        MysqlCon mysqlCon = new MysqlCon();
-        mysqlCon.execute(new String[] {"post"});
+        Bundle postQueryBundle = new Bundle( );
+        postQueryBundle.putString( "type","post" );
+
+        LoaderManager loaderManager = getSupportLoaderManager();
+        Loader<String> postLoader = loaderManager.getLoader( LOADER_ID );
+        if(postList != null) {
+            loaderManager.initLoader( LOADER_ID, postQueryBundle, this );
+        }
     }
 
-    public List<Post> parseResult(String result) {
+    public ArrayList<Post> parseResult(String result) {
         // Function to take json as string and parse it into the post list
         ArrayList<Post> postList = new ArrayList<>();
 
@@ -413,27 +449,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    //Code for loader
-//            LoaderManager.LoaderCallbacks<List<Post>> loaderCallbacks = new LoaderManager.LoaderCallbacks<List<Post>>() {
-//            @Override
-//            public Loader<List<Post>> onCreateLoader(int id, Bundle args) {
-//
-//                PostLoader loader = new PostLoader(getApplicationContext(),new String[] {"post"});
-//                return loader;
-//            }
-//
-//            @Override
-//            public void onLoadFinished(Loader<List<Post>> loader, List<Post> data) {
-//                mAdapter
-//            }
-//
-//            @Override
-//            public void onLoaderReset(Loader<List<Post>> loader) {
-//                mAdapter.swapdata(null);
-//            }
-//        }
-
-
     //function to refresh recycler view on like button clicked
     public void refreshPostRecyclerView(List<Post> postList){
         mAdapter = new PostAdapter(postList,Uid);
@@ -443,6 +458,94 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         recyclerView.setAdapter(mAdapter);
 
     }
+
+    @SuppressLint("StaticFieldLeak")
+    @Override
+    public Loader<String> onCreateLoader(int i, final Bundle bundle) {
+        showProgress( true );
+        return new AsyncTaskLoader<String>(this) {
+            String jsonArray;
+
+            @Override
+            protected void onStartLoading() {
+                if(bundle == null)
+                    return;
+                if (jsonArray != null){
+                    deliverResult( jsonArray );
+                }
+                else {
+                    forceLoad();
+                }
+
+            }
+
+            @Override
+            public String loadInBackground() {
+                type = bundle.getString( "type" );
+                Log.i("LOADER EXECUTING","LOADER is executing");
+                String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+type+".php";
+
+                try {
+                    URL url = new URL(con_url);
+                    HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setDoInput(true);
+
+                    InputStream inputStream  = httpURLConnection.getInputStream();
+                    BufferedReader bufferedReader  = new BufferedReader(new InputStreamReader(inputStream,"ISO-8859-1"));
+                    String result="";
+                    String line;
+
+                    while((line=bufferedReader.readLine())!=null){
+                        result+=line;
+                    }
+                    bufferedReader.close();
+                    inputStream.close();
+                    httpURLConnection.disconnect();
+                    return result;
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                } catch (ProtocolException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+
+            @Override
+            public void deliverResult(String data) {
+                jsonArray = data;
+                super.deliverResult( data );
+            }
+        };
+    }
+
+    @Override
+    public void onLoadFinished(Loader<String> loader, String s) {
+        showProgress( false );
+        Log.e("Result", s);
+        FetchData = s;
+        String result = "{\"posts\":" + FetchData + "}";
+        Log.i("Json", result);
+        postList = parseResult(result);
+        mAdapter = new PostAdapter(postList,Uid);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<String> loader) {
+
+    }
+
+
     //Asynk Task to load post list from the internet
     class MysqlCon extends AsyncTask<String,String,String>
     {
@@ -592,6 +695,7 @@ class MysqlConProfileShow extends AsyncTask<String,String,String>
             Username.setText(Uname);
             Picasso.with(UserImage.getContext())
                     .load("https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+Uprofilepicture)
+                    .resize(50, 50).centerCrop()
                     .into(UserImage);
     }
 

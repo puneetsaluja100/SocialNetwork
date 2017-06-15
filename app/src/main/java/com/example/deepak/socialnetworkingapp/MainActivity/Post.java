@@ -1,6 +1,11 @@
 package com.example.deepak.socialnetworkingapp.MainActivity;
 
-public class Post {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+public class Post implements Parcelable{
     private int ProfileId;
     private int PostId;
     private String PostText;
@@ -14,6 +19,31 @@ public class Post {
 
     public Post(){
     }
+
+    protected Post(Parcel in) {
+        ProfileId = in.readInt();
+        PostId = in.readInt();
+        PostText = in.readString();
+        PostImage = in.readString();
+        PostTime = in.readString();
+        ProfileImage = in.readString();
+        ProfileName = in.readString();
+        LikesNumber = in.readString();
+        CommentsNumber = in.readString();
+        IsLiked = in.readByte() != 0;
+    }
+
+    public static final Creator<Post> CREATOR = new Creator<Post>() {
+        @Override
+        public Post createFromParcel(Parcel in) {
+            return new Post( in );
+        }
+
+        @Override
+        public Post[] newArray(int size) {
+            return new Post[size];
+        }
+    };
 
     public int getProfileId() {
         return ProfileId;
@@ -93,5 +123,25 @@ public class Post {
 
     public void setLiked(boolean liked) {
         IsLiked = liked;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+        dest.writeInt( ProfileId );
+        dest.writeInt( PostId );
+        dest.writeString( PostText );
+        dest.writeString( PostImage );
+        dest.writeString( PostTime );
+        dest.writeString( ProfileImage );
+        dest.writeString( ProfileName );
+        dest.writeString( LikesNumber );
+        dest.writeString( CommentsNumber );
+        dest.writeByte( (byte) (IsLiked ? 1 : 0) );
     }
 }
