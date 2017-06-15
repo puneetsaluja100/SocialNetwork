@@ -78,7 +78,7 @@ public class upload extends AppCompatActivity implements View.OnClickListener{
                 Uri selectedImageUri = data.getData();
                 if (null != selectedImageUri) {
                     // Get the path from the Uri
-                    String path = getPathFromURI(selectedImageUri);
+                   // String path = getPathFromURI(selectedImageUri);
                    // Log.i(TAG, "Image Path : " + path);
                     // Set the image in ImageView
                     imgView.setImageURI(selectedImageUri);

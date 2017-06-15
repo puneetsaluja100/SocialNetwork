@@ -3,6 +3,7 @@ package com.example.deepak.socialnetworkingapp.CommentActivity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -184,6 +186,7 @@ public class comment extends AppCompatActivity {
             super.onPostExecute(s);
             Log.e("Result",s+"PHp hai");
             prepareCommentData();
+            et_comment_text.setText(null);
 
         }
 

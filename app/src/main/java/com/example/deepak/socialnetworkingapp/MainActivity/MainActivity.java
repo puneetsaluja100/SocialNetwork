@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private TextView Username;
     private ImageView UserImage;
     private final int LOADER_ID = 50;
-
+    private int flag=0;
 
     public String FetchData;
     public String Uname;
@@ -231,12 +232,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Uri selectedImageUri = data.getData();
                 if (null != selectedImageUri) {
                     // Get the path from the Uri
-                    String path = getPathFromURI(selectedImageUri);
+                    //String path = getPathFromURI(selectedImageUri);
 //                    File f = new File(path);
 //
 //                    imageName = f.getName();
 //                    Log.i(TAG, "Image Path : " + path);
                     // Set the image in ImageView
+                    flag=1;
                     mimageUpload.setImageURI(selectedImageUri);
                 }
             }
@@ -275,7 +277,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                         loading.dismiss();
                         preparePostData();
-
+                        Drawable img = getApplicationContext().getResources().getDrawable(R.drawable.ic_menu_camera);
+                        mimageUpload.setImageDrawable(img);
+                        mstatusUpload.setText(null);
                         //Showing toast message of the response
                         //Toast.makeText(MainActivity.this, s , Toast.LENGTH_LONG).show();
                     }
@@ -293,7 +297,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 //Converting Bitmap to String
-                String image = getStringImage(bitmap);
+                String image="";
+                if(flag==1)
+                image = image + getStringImage(bitmap);
                 String text = mstatusUpload.getText().toString();
 
                 //Getting Image Name
