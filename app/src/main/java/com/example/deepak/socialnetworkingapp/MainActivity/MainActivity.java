@@ -557,7 +557,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Log.i("Asynk Task","Asynk task is executing");
             String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+type+".php";
 //            loninterval = System.currentTimeMillis() + 2000;
-//            while(System.currentTimeMillis()>interval);g
+//            while(System.currentTimeMillis()>interval);
 
             try {
                 URL url = new URL(con_url);
