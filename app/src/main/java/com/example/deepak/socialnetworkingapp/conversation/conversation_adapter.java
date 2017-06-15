@@ -48,8 +48,6 @@ public class conversation_adapter extends RecyclerView.Adapter<conversation_adap
     public void onBindViewHolder(conversation_adapter.MyViewHolder holder, int position) {
         holder.position_clicked = holder.getAdapterPosition();
         conversation_recycler conversation = conversationList.get(position);
-        Log.e("conversation ",conversation.getConversation_message());
-
         holder.conversation_text.setText(conversation.getConversation_message());
         holder.conversation_profile_name.setText(conversation.getProfilename());
         Picasso.with(holder.conversation_image.getContext())

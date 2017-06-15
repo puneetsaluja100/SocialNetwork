@@ -60,19 +60,12 @@ import static android.Manifest.permission.READ_CONTACTS;
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
-    /**
-     * Id to identity READ_CONTACTS permission request.
-     */
     private static final int REQUEST_READ_CONTACTS = 0;
-    /**
-     * Keep track of the login task to ensure we can cancel it if requested.
-     */
     private MysqlCon mAuthTask = null;
 
     // UI references.
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
-    //private EditText mGroupid;
     private View mProgressView;
     private View mLoginFormView;
     private TextView mProgressText;
@@ -81,10 +74,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
-       // mGroupid = (EditText)findViewById(R.id.group_id);
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -248,7 +239,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
                 }
             });
-
             mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
             mProgressText.setVisibility(show ? View.VISIBLE : View.GONE);
             mProgressView.animate().setDuration(shortAnimTime).alpha(
@@ -420,7 +410,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 startActivity(intent);
                 finish();
             }
-
         }
 
         @Override

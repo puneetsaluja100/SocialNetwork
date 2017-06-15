@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -58,6 +57,7 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
 
     private ImageView send_conversation;
     private EditText et_conversation_text;
+    public String comparestring= "fhdiuahifhaskdhfk";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +65,6 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
         setContentView(R.layout.conversation_activity_outer);
         Uid = getIntent().getExtras().getInt("Uid");
         Sid = getIntent().getExtras().getInt("Sid");
-        Log.e("secondUid", String.valueOf(Sid));
-        Log.e("firstUid", String.valueOf(Uid));
 
         recyclerView = (RecyclerView) findViewById(R.id.conversation_recycler_view);
 
@@ -89,7 +87,14 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
 
             prepareconversationData(1);
 
-            //Asynk task to update the conversation
+        conversation_recycler conversation = new conversation_recycler();
+        conversation.setConversation_message("hfaiuhdis");
+        conversation.setImage("dsfhasfonaso");
+        conversation.setProfilename("fahsd8fhiawfiu");
+        conversationListcache.add(conversation);
+
+
+        //Asynk task to update the conversation
             updateMessage.execute();
 
 
@@ -127,7 +132,6 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
             @Override
             public String loadInBackground() {
                 String type = bundle.getString( "type" ); //getPostComments
-                Log.i("Loader ", "Asynk task LOader is executing");
                 String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/" + type + ".php";
                 try {
                     URL url = new URL(con_url);
@@ -178,14 +182,11 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
 
     @Override
     public void onLoadFinished(Loader<String> loader, String s) {
-        Log.e("Result", s);
         String FetchData = s;
         String result = "{\"conversations\":" + FetchData + "}";
-        Log.i("Json", result);
         conversationList = parseconversationResult(result);
-        if(conversationListcache.containsAll(conversationList)){
-            Log.e( "Reloading","they both are not equal" );
-        conversationListcache = conversationList;
+        if(!(comparestring.equals(conversationList.get(0).getConversation_message()))){
+            comparestring = conversationList.get(0).getConversation_message();
         mAdapter = new conversation_adapter(conversationList);
         Context context = getBaseContext();
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(context);
@@ -205,7 +206,6 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
 
             String type = params[0];
             String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/" + type + ".php";
-            Log.e( "Asynk task","Asynk task is executing" );
             String Uid = params[1];
             String Sid = params[2];
             String message_text = params[3];
@@ -270,7 +270,6 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
         protected String doInBackground(String... params) {
             long time = System.currentTimeMillis()+2000;
             while(time>System.currentTimeMillis());
-            Log.e("REfreashed", "the messages refreshoghalsk");
             UpdateMessage updateMessage = new UpdateMessage();
             updateMessage.execute();
             return "items refreshed";
@@ -279,10 +278,10 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute( s );
-            Log.e("REfreashed", "the messages refreshoghalsk");
             prepareconversationData( 1 );
         }
     }
+
 
     private ArrayList<conversation_recycler> parseconversationResult(String result) {
         ArrayList<conversation_recycler> conversationList = new ArrayList<>();
@@ -293,19 +292,14 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
             for (int i = 0; i < jsonArray.length(); i++) {
                 conversation_recycler conversation = new conversation_recycler();
                 JSONObject reader = jsonArray.getJSONObject(i);
-                Log.i("Json",reader.toString());
                 conversation.setConversation_message(reader.getString("conversation_text"));
                 conversation.setImage(reader.getString("profile"));
                 conversation.setProfilename(reader.getString("name"));
                 conversationList.add(i,conversation);
-                Log.i( "Json post list", conversationList.get(i).getConversation_message() );
             }
-
         } catch (JSONException e) {
             e.printStackTrace();
-//            Log.e( "jsonerror","Error in parsing json" );
         }
-
         return conversationList;
     }
     
