@@ -40,12 +40,13 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 import it.sephiroth.android.library.imagezoom.ImageViewTouch;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder>  {
-    private List<Post> PostList;
+    public List<Post> PostList;
 
     public int postId;   public Button CommentButton,ShareButton;
     public int Uid;
@@ -97,9 +98,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
                 .into(holder.mPostImage);
 
 
-
-//TODO add a double tap listener using gesture listener in android
-//        holder.mPostImage.setOnClickListener(  );
         holder.profileName.setText(post.getProfileName());
         Picasso.with(holder.profilePicture.getContext())
                 .load("https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+post.getProfileImage())
@@ -121,8 +119,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
                 postId = post.getPostId();
                 Log.e("The post id clicked is ", String.valueOf( postId ) );
                 Toast.makeText( holder.LikeButton.getContext(),"You liked this post",Toast.LENGTH_SHORT ).show();
-                setColorLikeButton(holder.LikeButton);
-                refreshPostRecyclerView(PostList);
+                setColorLikeButton(holder.LikeButton,holder.getAdapterPosition());
+
                 MysqlConLike mysqlConLike = new MysqlConLike();
                 mysqlConLike.execute( "like",String.valueOf(Uid),String.valueOf(postId) );
             }
@@ -152,11 +150,15 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
                 sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
                 ShareButton.getContext().startActivity(Intent.createChooser(sharingIntent, "Share using"));
-
-
             }
         });
 
+
+    }
+
+    public void updateList(int value, int i) {
+        PostList.get(i).setLikesNumber( PostList.get(i).getLikesNumber() + value );
+        notifyDataSetChanged();
     }
 
     private void setLikeColorInitial(Button likeButton, boolean liked) {
@@ -174,11 +176,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
         }
     }
 
-    private void setColorLikeButton(Button LikeButton) {
+    private void setColorLikeButton(Button LikeButton, int adapterPosition) {
         ColorStateList mList = LikeButton.getTextColors();
         int color = mList.getDefaultColor();
-        Log.e( "Color", String.valueOf( color ) );
-        Log.e( "Color", String.valueOf(Color.BLACK) );
 
         switch(color)
         {
@@ -187,6 +187,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
                 Drawable un_img = LikeButton.getContext().getResources().getDrawable( R.drawable.ic_liked_black );
                 un_img.setBounds( 0, 0, 60, 60 );
                 LikeButton.setCompoundDrawables( un_img, null, null, null );
+                updateList( 1,adapterPosition );
                 break;
 
 
@@ -196,6 +197,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
                 Drawable img = LikeButton.getContext().getResources().getDrawable( R.drawable.ic_liked_red );
                 img.setBounds( 0, 0, 60, 60 );
                 LikeButton.setCompoundDrawables( img, null, null, null );
+                updateList( -1,adapterPosition );
                 break;
 
         }
