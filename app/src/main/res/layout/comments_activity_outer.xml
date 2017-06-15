@@ -6,30 +6,16 @@
     android:layout_height="match_parent"
     tools:context="com.example.deepak.socialnetworkingapp.CommentActivity.comment"
     >
-
-    <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/like_image"
-
-        android:src="@drawable/ic_liked_black"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <TextView
+        android:id="@+id/like_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/like_box"
-        android:text="Number of Likes goes here"
-        android:maxLines="1"
-        android:minLines="1"
-        android:layout_marginLeft="14dp"
-        android:layout_marginTop="11dp"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/like_image"
-        android:layout_toEndOf="@+id/like_image"
-        android:layout_marginStart="14dp" />
+        android:layout_height="50dp"
+        android:textSize="20sp"
+        android:text="Comments"
+        android:background="#1a237e"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="#fff"/>
 
     <View
         android:layout_width="match_parent"
@@ -74,9 +60,10 @@
         />
 
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/profile_sample"
+        android:foregroundGravity="center"
         android:src="@drawable/profile_picture"
         android:layout_alignParentBottom="true"
         />
@@ -94,7 +81,7 @@
         android:background="#fff"/>
 
     <ImageView
-        android:layout_width="40dp"
+        android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/send_comment"
         android:src="@drawable/ic_action_send_now"

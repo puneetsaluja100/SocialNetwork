@@ -76,9 +76,7 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
         send_conversation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
                 Toast.makeText(getApplicationContext(), "Sending message Please wait", LENGTH_SHORT).show();
-                et_conversation_text.clearFocus();
                 MysqlCon mysqlCon = new MysqlCon();
                 mysqlCon.execute( "insertMessage",String.valueOf( Uid ),String.valueOf( Sid ),et_conversation_text.getText().toString() );
                 et_conversation_text.setText(null);

@@ -105,17 +105,18 @@ public class comment extends AppCompatActivity {
         send_comment.setOnClickListener( new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                getWindow().setSoftInputMode( WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(send_comment.getWindowToken(), 0);
                 Toast.makeText(getApplicationContext(),"Commenting Please wait",LENGTH_SHORT).show();
                 et_comment_text.clearFocus();
                 MysqlCon mysqlCon = new MysqlCon();
                 mysqlCon.execute("comment",et_comment_text.getText().toString(),String.valueOf(postId),String.valueOf(Uid),String.valueOf(Pid));
+                et_comment_text.setText( "" );
             }});
     }
 
     private void prepareCommentData() {
         showProgress( true );
-            Log.e("Asynk Task","Asynk task is loaded to load comments");
             MysqlConCommentShow mysqlConCommentShow = new MysqlConCommentShow();
             mysqlConCommentShow.execute( "getPostComments", String.valueOf( postId ) );
     }
@@ -184,7 +185,6 @@ public class comment extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            Log.e("Result",s+"PHp hai");
             prepareCommentData();
             et_comment_text.setText(null);
 
@@ -206,7 +206,6 @@ public class comment extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             String type = params[0]; //getPostComments
-            Log.i("Asynk Task","Asynk task is executing");
             String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+type+".php";
 
             String postId = params[1];
@@ -258,10 +257,8 @@ public class comment extends AppCompatActivity {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
                 showProgress( false );
-                Log.e("Result", s);
                 FetchData = s;
                 String result = "{\"comments\":" + FetchData + "}";
-                Log.i("Json", result);
                 commentList = parseCommentResult(result);
                 mAdapter = new comment_adapter(commentList);
                 RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -289,17 +286,15 @@ public class comment extends AppCompatActivity {
             for (int i = 0; i < jsonArray.length(); i++) {
                 comment_recycler comment = new comment_recycler();
                 JSONObject reader = jsonArray.getJSONObject(i);
-                Log.i("Json",reader.toString());
                 comment.setComment(reader.getString("comment_text"));
                 comment.setImage(reader.getString("profile"));
                 comment.setProfilename(reader.getString("name"));
                 commentList.add(i,comment);
-                Log.i( "Json post list", commentList.get(i).getComment() );
+
             }
 
         } catch (JSONException e) {
             e.printStackTrace();
-//            Log.e( "jsonerror","Error in parsing json" );
         }
 
         return commentList;

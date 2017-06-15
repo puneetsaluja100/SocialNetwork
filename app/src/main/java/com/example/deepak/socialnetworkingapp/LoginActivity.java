@@ -1,5 +1,4 @@
 package com.example.deepak.socialnetworkingapp;
-
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;

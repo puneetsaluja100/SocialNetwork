@@ -6,7 +6,16 @@
     android:layout_height="match_parent"
     tools:context="com.example.deepak.socialnetworkingapp.CommentActivity.comment"
     >
-
+    <TextView
+        android:id="@+id/like_image"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="20sp"
+        android:text="Messages"
+        android:background="#1a237e"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="#fff"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="0.2dp"
