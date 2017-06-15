@@ -52,6 +52,7 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
     private ProgressBar progressBar;
     private TextView progressText;
     private conversation_adapter mAdapter;
+    public UpdateMessage updateMessage = new UpdateMessage();
     private ArrayList<conversation_recycler> conversationList = new ArrayList<>();
 
     private ImageView send_conversation;
@@ -81,35 +82,22 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
                 et_conversation_text.clearFocus();
                 MysqlCon mysqlCon = new MysqlCon();
                 mysqlCon.execute( "insertMessage",String.valueOf( Uid ),String.valueOf( Sid ),et_conversation_text.getText().toString() );
-
-
+                et_conversation_text.setText(null);
             }
         });
 
-//        while (true){
             prepareconversationData(1);
-//        }
-//        Thread thread = new Thread() {
-//            @Override
-//            public void run() {
-//                try {
-//                    while(true) {
-//                        sleep(5000);
-//                        prepareconversationData(1);
-//                        Log.e("REfreashed" ,"the messages refreshoghalsk");
-//                    }
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        };
-//
-//        thread.start();
 
-            UpdateMessage updateMessage = new UpdateMessage();
+            //Asynk task to update the conversation
             updateMessage.execute();
 
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        updateMessage.cancel( true );
+        super.onDestroy();
     }
 
     private void prepareconversationData(int i) {
@@ -207,85 +195,6 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
 
     }
 
-    //Asynk task to add new comments to a post
-    class MysqlConConversationShow extends AsyncTask<String, String, String> {
-        @Override
-        protected String doInBackground(String... params) {
-            String type = params[0]; //getPostComments
-            Log.i("Asynk Task", "Asynk task is executing");
-            String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/" + type + ".php";
-            try {
-                URL url = new URL(con_url);
-                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-                httpURLConnection.setRequestMethod("POST");
-                httpURLConnection.setDoOutput(true);
-                httpURLConnection.setDoInput(true);
-
-
-                OutputStream outputStream = httpURLConnection.getOutputStream();
-                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
-
-                String post_data = URLEncoder.encode("Uid", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(Uid), "UTF-8") +
-                        "&" + URLEncoder.encode("Sid", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(Sid), "UTF-8");
-
-
-                bufferedWriter.write(post_data);
-                bufferedWriter.flush();
-                bufferedWriter.close();
-                outputStream.close();
-
-                InputStream inputStream = httpURLConnection.getInputStream();
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "ISO-8859-1"));
-                String result = "";
-                String line;
-
-                while ((line = bufferedReader.readLine()) != null) {
-                    result += line;
-                }
-                bufferedReader.close();
-                inputStream.close();
-                httpURLConnection.disconnect();
-                return result;
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            } catch (ProtocolException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            //showProgress( false );
-            Log.e("Result", s);
-            String FetchData = s;
-            String result = "{\"conversations\":" + FetchData + "}";
-            Log.i("Json", result);
-            conversationList = parseconversationResult(result);
-            mAdapter = new conversation_adapter(conversationList);
-            Context context = getBaseContext();
-            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(context);
-            recyclerView.setLayoutManager(mLayoutManager);
-            recyclerView.setItemAnimator(new DefaultItemAnimator());
-            recyclerView.setAdapter(mAdapter);
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected void onCancelled() {
-        }
-    }
-
     class MysqlCon extends AsyncTask<String,String,String> {
         @Override
         protected String doInBackground(String... params) {
@@ -347,6 +256,7 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute( s );
+
             prepareconversationData( 1 );
         }
     }
@@ -354,10 +264,8 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
     class UpdateMessage extends AsyncTask<String,String,String> {
         @Override
         protected String doInBackground(String... params) {
-            long time = System.currentTimeMillis()+1000;
+            long time = System.currentTimeMillis()+2000;
             while(time>System.currentTimeMillis());
-            UpdateMessage updateMessage = new UpdateMessage();
-            updateMessage.execute();
             Log.e("REfreashed", "the messages refreshoghalsk");
             return "items refreshed";
         }
@@ -367,6 +275,7 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
             super.onPostExecute( s );
             Log.e("REfreashed", "the messages refreshoghalsk");
             prepareconversationData( 1 );
+            updateMessage.execute();
         }
     }
 

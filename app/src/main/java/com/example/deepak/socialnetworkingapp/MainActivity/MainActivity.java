@@ -153,6 +153,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         email = getIntent().getExtras().getString("email");
+        Uname = getIntent().getExtras().getString("profilename");
 
         LayoutInflater inflater = (LayoutInflater)getSystemService( Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate( R.layout.mainactivity_content_navigation, null);
@@ -351,6 +352,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //Function to populate the post list
         Bundle postQueryBundle = new Bundle( );
         postQueryBundle.putString( "type","post" );
+        postQueryBundle.putString( "group_id",group_id );
 
         LoaderManager loaderManager = getSupportLoaderManager();
         Loader<String> postLoader = loaderManager.getLoader( LOADER_ID );
@@ -492,6 +494,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public String loadInBackground() {
                 type = bundle.getString( "type" );
+                String group_id = bundle.getString("group_id" );
                 Log.i("LOADER EXECUTING","LOADER is executing");
                 String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+type+".php";
 
@@ -501,6 +504,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.setDoOutput(true);
                     httpURLConnection.setDoInput(true);
+
+                    OutputStream outputStream = httpURLConnection.getOutputStream();
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+
+                    String post_data = URLEncoder.encode("group_id", "UTF-8") + "=" + URLEncoder.encode(group_id, "UTF-8");
+
+
+                    bufferedWriter.write(post_data);
+                    bufferedWriter.flush();
+                    bufferedWriter.close();
+                    outputStream.close();
 
                     InputStream inputStream  = httpURLConnection.getInputStream();
                     BufferedReader bufferedReader  = new BufferedReader(new InputStreamReader(inputStream,"ISO-8859-1"));

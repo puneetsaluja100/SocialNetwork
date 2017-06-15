@@ -187,7 +187,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
                 Drawable un_img = LikeButton.getContext().getResources().getDrawable( R.drawable.ic_liked_black );
                 un_img.setBounds( 0, 0, 60, 60 );
                 LikeButton.setCompoundDrawables( un_img, null, null, null );
-                updateList( 1,adapterPosition );
+//                updateList( 1,adapterPosition );
                 break;
 
 
@@ -197,7 +197,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
                 Drawable img = LikeButton.getContext().getResources().getDrawable( R.drawable.ic_liked_red );
                 img.setBounds( 0, 0, 60, 60 );
                 LikeButton.setCompoundDrawables( img, null, null, null );
-                updateList( -1,adapterPosition );
+//                updateList( -1,adapterPosition );
                 break;
 
         }
