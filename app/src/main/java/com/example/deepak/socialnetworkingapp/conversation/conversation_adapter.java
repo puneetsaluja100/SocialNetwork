@@ -12,9 +12,6 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-/**
- * Created by admin on 6/13/2017.
- */
 
 public class conversation_adapter extends RecyclerView.Adapter<conversation_adapter.MyViewHolder>{
 
@@ -30,7 +27,7 @@ public class conversation_adapter extends RecyclerView.Adapter<conversation_adap
             conversation_text = (TextView) view.findViewById( R.id.conversation_text1);
             conversation_image = (de.hdodenhof.circleimageview.CircleImageView) view.findViewById(R.id.conversation_pic);
             conversation_profile_name = (TextView) view.findViewById(R.id.conversation_profilename);
-            position_clicked  =0;
+            position_clicked = 0;
         }
     }
 

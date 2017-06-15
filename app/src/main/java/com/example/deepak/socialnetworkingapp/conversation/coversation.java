@@ -54,6 +54,7 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
     private conversation_adapter mAdapter;
     public UpdateMessage updateMessage = new UpdateMessage();
     private ArrayList<conversation_recycler> conversationList = new ArrayList<>();
+    private ArrayList<conversation_recycler> conversationListcache = new ArrayList<>();
 
     private ImageView send_conversation;
     private EditText et_conversation_text;
@@ -182,12 +183,14 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
         String result = "{\"conversations\":" + FetchData + "}";
         Log.i("Json", result);
         conversationList = parseconversationResult(result);
+        if(!conversationList.equals( conversationListcache )){
+        conversationListcache = conversationList;
         mAdapter = new conversation_adapter(conversationList);
         Context context = getBaseContext();
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(mAdapter);
+        recyclerView.setAdapter(mAdapter);}
     }
 
     @Override
@@ -267,6 +270,8 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
             long time = System.currentTimeMillis()+2000;
             while(time>System.currentTimeMillis());
             Log.e("REfreashed", "the messages refreshoghalsk");
+            UpdateMessage updateMessage = new UpdateMessage();
+            updateMessage.execute();
             return "items refreshed";
         }
 
@@ -275,7 +280,6 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
             super.onPostExecute( s );
             Log.e("REfreashed", "the messages refreshoghalsk");
             prepareconversationData( 1 );
-            updateMessage.execute();
         }
     }
 

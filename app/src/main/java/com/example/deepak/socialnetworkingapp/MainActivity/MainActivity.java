@@ -153,7 +153,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         email = getIntent().getExtras().getString("email");
-        Uname = getIntent().getExtras().getString("profilename");
+        Uname = getIntent().getExtras().getString("Uname");
+        Uprofilepicture = getIntent().getExtras().getString("Uprofilepicture");
+        Uid = getIntent().getExtras().getInt("Uid");
+        group_id = getIntent().getExtras().getString("group_id");
+
 
         LayoutInflater inflater = (LayoutInflater)getSystemService( Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate( R.layout.mainactivity_content_navigation, null);
@@ -181,7 +185,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Useremail.setText(email);
         Username.setText(Uname);
         Picasso.with(UserImage.getContext())
-                .load("https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+email+"profile.png")
+                .load("https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+Uprofilepicture)
                 .resize(50, 50).centerCrop()
                 .into(UserImage);
 
@@ -198,21 +202,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_post);
 
         preparePostData();
-//        if(savedInstanceState!= null){
-//            if(savedInstanceState.containsKey( LIFECYCLE )){
-//                postList = savedInstanceState.getParcelableArrayList( LIFECYCLE );
-//                Log.e( "SAving instance","It is working" );
-//                mAdapter = new PostAdapter(postList,Uid);
-//                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-//                recyclerView.setLayoutManager(mLayoutManager);
-//                recyclerView.setItemAnimator(new DefaultItemAnimator());
-//                recyclerView.setAdapter(mAdapter);
-//            }
-//            else{
-//                Log.e( "SAving instance","Going in the obivious" );
-//                preparePostData();
-//            }
-//        }
 
     }
 
@@ -240,12 +229,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Uri selectedImageUri = data.getData();
                 if (null != selectedImageUri) {
                     // Get the path from the Uri
-                    //String path = getPathFromURI(selectedImageUri);
-//                    File f = new File(path);
-//
-//                    imageName = f.getName();
-//                    Log.i(TAG, "Image Path : " + path);
-                    // Set the image in ImageView
                     flag=1;
                     mimageUpload.setImageURI(selectedImageUri);
                 }
@@ -288,8 +271,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         Drawable img = getApplicationContext().getResources().getDrawable(R.drawable.ic_menu_camera);
                         mimageUpload.setImageDrawable(img);
                         mstatusUpload.setText(null);
-                        //Showing toast message of the response
-                        //Toast.makeText(MainActivity.this, s , Toast.LENGTH_LONG).show();
+
                     }
                 },
                 new Response.ErrorListener() {
@@ -298,8 +280,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         //Dismissing the progress dialog
                         loading.dismiss();
 
-                        //Showing toast
-                        //Toast.makeText(upload.this, volleyError.getMessage().toString(), Toast.LENGTH_LONG).show();
                     }
                 }){
             @Override

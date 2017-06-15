@@ -33,6 +33,10 @@ import android.widget.TextView;
 
 import com.example.deepak.socialnetworkingapp.MainActivity.MainActivity;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -389,9 +393,30 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 mEmailView.setError("Email is incorrect");
 
             } else{
+                //Passing all the details of user
+                String result = "{\"profile details\":" + s + "}";
+                String Uname="",Uprofilepicture="",group_id="";
+                int Uid=0;
+                Log.e("Json Result", result);
+                try {
+                    JSONObject reader = new JSONObject(result);
+                    JSONArray profilearray = reader.getJSONArray("profile details");
+                    JSONObject profile = profilearray.getJSONObject(0);
+                    Uname = profile.getString("name");
+                    Uprofilepicture = profile.getString("profile");
+                    Uid =Integer.parseInt(profile.getString( "profile_id" ));
+                    Log.e( "profile id is ", String.valueOf( Uid ) );
+                    group_id = profile.getString("group_id");
+                    Log.e( "group id", String.valueOf( group_id ) );
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                 intent.putExtra("email",mEmailView.getText().toString());
-                intent.putExtra("profilename",s);
+                intent.putExtra("Uname",Uname);
+                intent.putExtra("Uprofilepicture",Uprofilepicture);
+                intent.putExtra("group_id",group_id);
+                intent.putExtra("Uid",Uid);
                 startActivity(intent);
                 finish();
             }
