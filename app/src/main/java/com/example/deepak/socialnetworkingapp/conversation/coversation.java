@@ -78,25 +78,31 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
                 getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
                 Toast.makeText(getApplicationContext(), "Sending message Please wait", LENGTH_SHORT).show();
                 et_conversation_text.clearFocus();
-                MysqlConConversationShow first = new MysqlConConversationShow();
-                first.execute( "getConversation" );
+                MysqlCon mysqlCon = new MysqlCon();
+                mysqlCon.execute( "insertMessage",String.valueOf( Uid ),String.valueOf( Sid ),et_conversation_text.getText().toString() );
+
 
             }
         });
 
 //        while (true){
-            prepareconversationData();
+            prepareconversationData(1);
 //        }
 
     }
 
-    private void prepareconversationData() {
+    private void prepareconversationData(int i) {
         //showProgress( true );
         Bundle postQueryBundle = new Bundle( );
         postQueryBundle.putString( "type","getConversation" );
         LoaderManager loaderManager = getSupportLoaderManager();
         Loader<String> postLoader = loaderManager.getLoader( LOADER_ID );
-        loaderManager.initLoader( LOADER_ID, postQueryBundle, this );
+        if(i==1){
+            loaderManager.initLoader( LOADER_ID, postQueryBundle, this ).forceLoad();
+        }
+        else {
+            loaderManager.initLoader( LOADER_ID, postQueryBundle, this );
+        }
         long interval = System.currentTimeMillis() + 2000;
         while(System.currentTimeMillis()>interval);
     }
@@ -107,13 +113,12 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
             @Override
             protected void onStartLoading() {
                 super.onStartLoading();
-                forceLoad();
             }
 
             @Override
             public String loadInBackground() {
                 String type = bundle.getString( "type" ); //getPostComments
-                Log.i("Asynk Task", "Asynk task is executing");
+                Log.i("Loader ", "Asynk task LOader is executing");
                 String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/" + type + ".php";
                 try {
                     URL url = new URL(con_url);
@@ -267,7 +272,7 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
 
             String type = params[0];
             String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/" + type + ".php";
-
+            Log.e( "Asynk task","Asynk task is executing" );
             String Uid = params[1];
             String Sid = params[2];
             String message_text = params[3];
@@ -317,6 +322,12 @@ public class coversation extends AppCompatActivity implements LoaderManager.Load
                 e.printStackTrace();
             }
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute( s );
+            prepareconversationData( 1 );
         }
     }
 

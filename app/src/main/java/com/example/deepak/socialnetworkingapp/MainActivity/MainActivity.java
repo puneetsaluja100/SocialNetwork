@@ -347,7 +347,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         LoaderManager loaderManager = getSupportLoaderManager();
         Loader<String> postLoader = loaderManager.getLoader( LOADER_ID );
         if(postList != null) {
-            loaderManager.initLoader( LOADER_ID, postQueryBundle, this );
+            loaderManager.initLoader( LOADER_ID, postQueryBundle, this ).forceLoad();
         }
     }
 
@@ -472,12 +472,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             protected void onStartLoading() {
                 if(bundle == null)
                     return;
-                if (jsonArray != null){
-                    deliverResult( jsonArray );
-                }
-                else {
-                    forceLoad();
-                }
+//                if (jsonArray != null){
+//                    deliverResult( jsonArray );
+//                }
+//                else {
+//                    forceLoad();
+//                }
 
             }
 
@@ -519,11 +519,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 return null;
             }
 
-            @Override
-            public void deliverResult(String data) {
-                jsonArray = data;
-                super.deliverResult( data );
-            }
+//            @Override
+//            public void deliverResult(String data) {
+//                jsonArray = data;
+//                super.deliverResult( data );
+//            }
         };
     }
 
