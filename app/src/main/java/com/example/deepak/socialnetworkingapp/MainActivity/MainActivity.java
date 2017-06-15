@@ -54,6 +54,7 @@ import com.example.deepak.socialnetworkingapp.GetfriendsActivity.getfriends;
 import com.example.deepak.socialnetworkingapp.LoginActivity;
 import com.example.deepak.socialnetworkingapp.NotificationActivity.Notification_fragment;
 import com.example.deepak.socialnetworkingapp.R;
+import com.example.deepak.socialnetworkingapp.messages.message;
 import com.example.deepak.socialnetworkingapp.upload;
 import com.squareup.picasso.Picasso;
 
@@ -435,7 +436,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_friends) {
             startActivity( new Intent( MainActivity.this,getfriends.class ).putExtra( "Uid",Uid ) );
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_messages) {
+            startActivity(new Intent(MainActivity.this,message.class).putExtra("Uid",Uid));
 
         } else if (id == R.id.nav_share) {
 

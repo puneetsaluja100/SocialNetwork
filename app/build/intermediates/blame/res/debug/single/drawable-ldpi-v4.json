@@ -8,6 +8,10 @@
         "source": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_notifications_black.png"
     },
     {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_liked_black.png",
+        "source": "E:\\SocialNetworkingApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_liked_black.png"
+    },
+    {
         "merged": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_forward_black.png",
         "source": "E:\\AndroidProjects\\SocialNetworkingApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_forward_black.png"
     },
@@ -42,6 +46,10 @@
     {
         "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_face.png",
         "source": "E:\\SocialNetworkingApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_face.png"
+    },
+    {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_notifications_black.png",
+        "source": "E:\\SocialNetworkingApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_notifications_black.png"
     },
     {
         "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_comment_black.png",

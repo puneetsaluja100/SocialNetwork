@@ -112,6 +112,10 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\2a796c7ecc71006ef717ce99c581bc9c\\res\\drawable-v21\\avd_hide_password.xml"
     },
     {
+        "merged": "E:\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_liked_red.xml",
+        "source": "E:\\SocialNetworkingApp\\app\\src\\main\\res\\drawable-v21\\ic_liked_red.xml"
+    },
+    {
         "merged": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_liked_red.xml",
         "source": "C:\\Users\\OMPRAKASH\\AndroidStudioProjects\\SocialNetworkingApp\\app\\src\\main\\res\\drawable-v21\\ic_liked_red.xml"
     },
