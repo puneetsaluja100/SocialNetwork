@@ -383,15 +383,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             super.onPostExecute(s);
             Log.e("Result",s+"result");
             showProgress(false);
-            if(s.contains("Login Successful")){
-                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                intent.putExtra("email",mEmailView.getText().toString());
-                startActivity(intent);
-                finish();
-            } else {
+            if(s.contains("unsuccessful")){
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
 //                mPasswordView.requestFocus();
                 mEmailView.setError("Email is incorrect");
+
+            } else{
+                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                intent.putExtra("email",mEmailView.getText().toString());
+                intent.putExtra("profilename",s);
+                startActivity(intent);
+                finish();
             }
 
         }
