@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public String Uname;
     public int Uid;
     public String Uprofilepicture;
+    public String group_id;
 
     //new uploading post
     private ImageView mimageUpload;
@@ -312,6 +313,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 params.put(KEY_IMAGE, image);
                 params.put("email",email);
                 params.put("text",text);
+                params.put("group_id",group_id);
                 //params.put("name", imageName);
 
                 //returning parameters
@@ -440,7 +442,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity( new Intent( MainActivity.this,Notification_fragment.class ).putExtra( "Uid",Uid ) );
 
         } else if (id == R.id.nav_friends) {
-            startActivity( new Intent( MainActivity.this,getfriends.class ).putExtra( "Uid",Uid ) );
+            startActivity( new Intent( MainActivity.this,getfriends.class ).putExtra( "Uid",Uid ).putExtra("group_id",group_id));
 
         } else if (id == R.id.nav_messages) {
             startActivity(new Intent(MainActivity.this,message.class).putExtra("Uid",Uid));
@@ -695,7 +697,8 @@ class MysqlConProfileShow extends AsyncTask<String,String,String>
                 Uname = profile.getString("name");
                 Uprofilepicture = profile.getString("profile");
                 Uid =Integer.parseInt(profile.getString( "id" ));
-                Log.e( "User id", String.valueOf( Uid ) );
+                group_id = profile.getString("group_id");
+                Log.e( "group id", String.valueOf( group_id ) );
             } catch (JSONException e) {
                 e.printStackTrace();
             }

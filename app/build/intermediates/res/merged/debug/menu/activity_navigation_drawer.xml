@@ -14,8 +14,8 @@
             android:title="Notification" />
         <item
             android:id="@+id/nav_friends"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Get Friends" />
+            android:icon="@drawable/ic_menu_users"
+            android:title="Get users" />
         <item
             android:id="@+id/nav_messages"
             android:icon="@drawable/ic_menu_manage"

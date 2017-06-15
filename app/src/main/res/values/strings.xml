@@ -7,6 +7,8 @@
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
+    <string name="group_id_msg">You want to create a group</string>
+    <string name="group_id">Group ID</string>
     <string name="prompt_password">Password </string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>

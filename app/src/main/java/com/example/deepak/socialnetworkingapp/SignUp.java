@@ -8,6 +8,7 @@ import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -42,9 +44,11 @@ public class SignUp extends AppCompatActivity {
 
     private MysqlCon mAuthTask = null;
 
-    private EditText mName,mDob,mEmail,mPassword;
+    private EditText mName,mDob,mEmail,mPassword,mGroupid;
     private Button mSignUp,mSignIn;
     private View mLoginFormView,mProgressView,mProgressText;
+    private CheckBox mcheckBox;
+    private int ch = 0;
 
 
     @Override
@@ -52,16 +56,21 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+
+
         mName = (EditText)findViewById(R.id.name);
         mDob = (EditText)findViewById(R.id.dob);
         mEmail = (EditText)findViewById(R.id.email);
         mPassword = (EditText)findViewById(R.id.password);
+        mGroupid = (EditText)findViewById(R.id.group_id) ;
         mSignUp = (Button) findViewById(R.id.email_sign_up_button);
         mSignIn = (Button) findViewById(R.id.email_sign_in_button);
         mLoginFormView = findViewById(R.id.register_form);
         mProgressView = findViewById(R.id.register_progress);
         mProgressText = (TextView) findViewById(R.id.progress_text_reg);
+        mcheckBox = (CheckBox)findViewById(R.id.checkbox);
 
+        mGroupid.setEnabled(false);
         mSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,10 +82,36 @@ public class SignUp extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SignUp.this,LoginActivity.class);
                 startActivity(intent);
+
+
+            }
+        });
+
+        mcheckBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean checked = mcheckBox.isChecked();
+
+
+                // Check which checkbox was clicked
+                if(checked)
+                {
+                    mGroupid.setEnabled(true);
+                    ch = 1;
+
+                }
+                else
+                {
+                    mGroupid.setEnabled(false);
+                    ch = 0;
+                }
             }
         });
 
     }
+
+
+
 
     private void attemptRegister(){
 
@@ -88,12 +123,14 @@ public class SignUp extends AppCompatActivity {
         mDob.setError(null);
         mEmail.setError(null);
         mPassword.setError(null);
+        mGroupid.setError(null);
 
 
         String name = mName.getText().toString();
         String dob = mDob.getText().toString();
         String email = mEmail.getText().toString();
         String password = mPassword.getText().toString();
+        String group_id = mGroupid.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -132,7 +169,11 @@ public class SignUp extends AppCompatActivity {
         else {
             showProgress(true);
             MysqlCon mysqlCon = new MysqlCon();
-            mysqlCon.execute("register", name, dob, email, password);
+            if(ch==0)
+            mysqlCon.execute("register", name, dob, email, password,null);
+            else if(ch==1){
+                mysqlCon.execute("register", name, dob, email, password, group_id);
+            }
         }
     }
 
@@ -184,12 +225,15 @@ public class SignUp extends AppCompatActivity {
     {
         @Override
         protected String doInBackground(String... params) {
+
             String type = params[0];
             String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+type+".php";
             String name = params[1];
             String dob = params[2];
             String email = params[3];
             String password = params[4];
+            String group_id = params [5];
+
 
             try {
                 URL url = new URL(con_url);
@@ -198,19 +242,38 @@ public class SignUp extends AppCompatActivity {
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setDoInput(true);
 
+                if(group_id==null)
+                {
+                    OutputStream outputStream  = httpURLConnection.getOutputStream();
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
+                    String post_data= URLEncoder.encode("name","UTF-8")+"="+ URLEncoder.encode(name,"UTF-8")+"&"
+                            + URLEncoder.encode("dob","UTF-8")+"="+ URLEncoder.encode(dob,"UTF-8")+"&"
+                            + URLEncoder.encode("email","UTF-8")+"="+ URLEncoder.encode(email,"UTF-8")+"&"
+                            + URLEncoder.encode("password","UTF-8")+"="+ URLEncoder.encode(password,"UTF-8");
 
-                OutputStream outputStream  = httpURLConnection.getOutputStream();
-                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
-                String post_data= URLEncoder.encode("name","UTF-8")+"="+ URLEncoder.encode(name,"UTF-8")+"&"
-                        + URLEncoder.encode("dob","UTF-8")+"="+ URLEncoder.encode(dob,"UTF-8")+"&"
-                        + URLEncoder.encode("email","UTF-8")+"="+ URLEncoder.encode(email,"UTF-8")+"&"
-                        + URLEncoder.encode("password","UTF-8")+"="+ URLEncoder.encode(password,"UTF-8");
+                    bufferedWriter.write(post_data);
+                    bufferedWriter.flush();
+                    bufferedWriter.close();
+                    outputStream.close();
+                }
+                  else
+                {
+                    OutputStream outputStream  = httpURLConnection.getOutputStream();
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
+                    String post_data= URLEncoder.encode("name","UTF-8")+"="+ URLEncoder.encode(name,"UTF-8")+"&"
+                            + URLEncoder.encode("dob","UTF-8")+"="+ URLEncoder.encode(dob,"UTF-8")+"&"
+                            + URLEncoder.encode("email","UTF-8")+"="+ URLEncoder.encode(email,"UTF-8")+"&"
+                            + URLEncoder.encode("password","UTF-8")+"="+ URLEncoder.encode(password,"UTF-8")+"&"
+                            + URLEncoder.encode("group_id","UTF-8")+"="+ URLEncoder.encode(group_id,"UTF-8");
+
+                    bufferedWriter.write(post_data);
+                    bufferedWriter.flush();
+                    bufferedWriter.close();
+                    outputStream.close();
+                }
 
 
-                bufferedWriter.write(post_data);
-                bufferedWriter.flush();
-                bufferedWriter.close();
-                outputStream.close();
+
 
 
                 InputStream inputStream  = httpURLConnection.getInputStream();
@@ -257,6 +320,11 @@ public class SignUp extends AppCompatActivity {
                 mEmail.setError("Email Already exists");
                 mEmail.requestFocus();
                 Toast toast = Toast.makeText(getApplicationContext(), " Error : Email Already Exists", Toast.LENGTH_SHORT);
+                toast.show();
+            }else if (s.contains( "Group ID Exists" )){
+                mEmail.setError("Group ID Already exists");
+                mEmail.requestFocus();
+                Toast toast = Toast.makeText(getApplicationContext(), " Error : Group ID Already Exists", Toast.LENGTH_SHORT);
                 toast.show();
             }
             else {
