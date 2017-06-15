@@ -177,7 +177,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Useremail = (TextView)header.findViewById(R.id.user_email);
         UserImage = (ImageView)header.findViewById(R.id.user_image);
         Username = (TextView)header.findViewById(R.id.user_name);
-        getUserDetails();
+//        getUserDetails();
+        Useremail.setText(email);
+        Username.setText(Uname);
+        Picasso.with(UserImage.getContext())
+                .load("https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+email+"profile.png")
+                .resize(50, 50).centerCrop()
+                .into(UserImage);
 
         getWindow().setSoftInputMode( WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         mstatusUpload = (EditText)findViewById(R.id.statusUpload);
@@ -495,6 +501,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public String loadInBackground() {
                 type = bundle.getString( "type" );
                 String group_id = bundle.getString("group_id" );
+                group_id = "opdhakad";
                 Log.i("LOADER EXECUTING","LOADER is executing");
                 String con_url = "https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+type+".php";
 
@@ -719,7 +726,7 @@ class MysqlConProfileShow extends AsyncTask<String,String,String>
             Useremail.setText(email);
             Username.setText(Uname);
             Picasso.with(UserImage.getContext())
-                    .load("https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+Uprofilepicture)
+                    .load("https://socialnetworkapplication.000webhostapp.com/SocialNetwork/"+email+"profile.png")
                     .resize(50, 50).centerCrop()
                     .into(UserImage);
     }
